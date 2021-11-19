@@ -1,5 +1,7 @@
 const router = require("express").Router();
 const User = require("./../models/User.model");
+const bcrypt = require("bcryptjs");
+const zxcvbn = require("zxcvbn");
 //Importing Needed Packages
 
 const saltRounds = 10;
@@ -7,6 +9,7 @@ const saltRounds = 10;
 router.get("/signup", (req, res) => {
   res.render("auth-views/signup-form");
 });
+
 router.post("/signup", (req, res) => {
   const { username, password } = req.body;
   const usernameNotProvided = !username || username === "";
@@ -17,6 +20,5 @@ router.post("/signup", (req, res) => {
     });
     return;}
 })
-
 
 module.exports = router;
