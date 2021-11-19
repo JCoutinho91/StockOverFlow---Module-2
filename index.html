@@ -1,9 +1,5 @@
-{{! LOGIN FORM  }}
-
-{{! ! should we delete this page? }}
-
-{{!-- <form id="form" action="/login" method="POST">
-
+<!-- LOGIN FORM -->
+<form id="form" action="/index" method="POST">
   <label for="username">Username</label><br />
   <input type="text" name="username" placeholder="Your username" />
 
@@ -13,8 +9,6 @@
   <button type="submit">Login</button>
 </form>
 
-{{! error message display: }}
-
-{{#if errorMessage}}
-  <div class="error-message">{{errorMessage}}</div>
-{{/if}} --}}
+{{! error message display: }} {{#if errorMessage}}
+<div class="error-message">{{errorMessage}}</div>
+{{/if}}
