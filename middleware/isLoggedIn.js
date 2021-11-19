@@ -1,9 +1,9 @@
 function isLoggedIn(req, res, next) {
-    if (!req.session.user) {
-      return res.redirect("/login");
-    }
-  
-    next();
+  if (!req.session.user) {
+    return res.redirect("/login");
   }
-  
-  module.exports = isLoggedIn;
+
+  next();
+}
+
+module.exports = isLoggedIn;
