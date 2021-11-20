@@ -31,7 +31,6 @@ app.use("/", index);
 const authRoutes = require("./routes/auth.route");
 app.use("/", authRoutes);
 
-
 const stocksRoutes = require("./routes/stocks.route");
 app.use("/", stocksRoutes)
 

@@ -10,6 +10,10 @@ router.get("/signup", (req, res) => {
   res.render("auth-views/signup-form");
 });
 
+router.get("/home-view", (req, res) => {
+  res.render("home-view");
+});
+
 router.post("/signup", (req, res) => {
   const { username, password } = req.body;
   const usernameNotProvided = !username || username === "";
@@ -18,9 +22,10 @@ router.post("/signup", (req, res) => {
     res.render("auth-views/signup-form", {
       errorMessage: "Provide username and password.",
     });
-    return;}
+    return;
+  }
 
-User.findOne({ username: username })
+  User.findOne({ username: username })
     .then((foundUser) => {
       if (foundUser) {
         throw new Error("The username is taken");
@@ -46,9 +51,11 @@ User.findOne({ username: username })
         errorMessage: err.message || "Error while trying to sign up",
       });
     });
-})
+});
+
+
 // POST /login
-router.post("/", (req, res) => {
+router.post("/home-view", (req, res) => {
   // Get the username and password from the req.body
   const { username, password } = req.body;
 
@@ -70,7 +77,6 @@ router.post("/", (req, res) => {
       user = foundUser;
       if (!foundUser) {
         throw new Error("Wrong credentials");
-
       }
 
       // Compare the passwords
@@ -81,7 +87,7 @@ router.post("/", (req, res) => {
         throw new Error("Wrong credentials");
       } else if (isCorrectPassword) {
         req.session.user = user;
-        res.redirect("/");
+        res.redirect("/home-view");
       }
     })
     .catch((err) => {
