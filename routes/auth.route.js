@@ -10,6 +10,10 @@ router.get("/signup", (req, res) => {
   res.render("auth-views/signup-form");
 });
 
+router.get("/home-view", (req, res) => {
+  res.render("home-view");
+});
+
 router.post("/signup", (req, res) => {
   const { username, password } = req.body;
   const usernameNotProvided = !username || username === "";
@@ -49,12 +53,8 @@ router.post("/signup", (req, res) => {
     });
 });
 
-router.get("/index", (req, res) => {
-  res.render("/home");
-});
-
 // POST /login
-router.post("/index", (req, res) => {
+router.post("/home-view", (req, res) => {
   // Get the username and password from the req.body
   const { username, password } = req.body;
 
@@ -86,7 +86,7 @@ router.post("/index", (req, res) => {
         throw new Error("Wrong credentials");
       } else if (isCorrectPassword) {
         req.session.user = user;
-        res.redirect("home");
+        res.redirect("/home-view");
       }
     })
     .catch((err) => {
