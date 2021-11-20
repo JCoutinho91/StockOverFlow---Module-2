@@ -18,15 +18,13 @@ router.post("/signup", (req, res) => {
     res.render("auth-views/signup-form", {
       errorMessage: "Provide username and password.",
     });
-    return;
-  }
+    return;}
 
-  User.findOne({ username: username })
+User.findOne({ username: username })
     .then((foundUser) => {
       if (foundUser) {
         throw new Error("The username is taken");
       }
-
       // Generating the salt string
       return bcrypt.genSalt(saltRounds);
     })
@@ -48,8 +46,7 @@ router.post("/signup", (req, res) => {
         errorMessage: err.message || "Error while trying to sign up",
       });
     });
-});
-
+})
 // POST /login
 router.post("/", (req, res) => {
   // Get the username and password from the req.body
@@ -73,6 +70,7 @@ router.post("/", (req, res) => {
       user = foundUser;
       if (!foundUser) {
         throw new Error("Wrong credentials");
+
       }
 
       // Compare the passwords

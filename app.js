@@ -31,6 +31,13 @@ app.use("/", index);
 const authRoutes = require("./routes/auth.route");
 app.use("/", authRoutes);
 
+
+const stocksRoutes = require("./routes/stocks.route");
+app.use("/", stocksRoutes)
+
+const newsRoutes = require("./routes/news.route");
+app.use("/", newsRoutes)
+
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
 require("./error-handling")(app);
 
