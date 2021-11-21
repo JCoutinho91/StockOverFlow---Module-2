@@ -6,13 +6,11 @@ router.get("/stocks-views/stock-view", (req,res)=>{
     axios.get(url)
     .then((stockdata) =>{
         console.log(stockdata.data.ticker)
-        res.render("home-view", { stockList: stockdata.data });
+        res.render("/home-view", { stockList: stockdata.data });
     })
-
     .catch((err)=>{
         console.log(err)
     })
-
 })
 
 

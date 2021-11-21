@@ -1,20 +1,24 @@
-<section class="container">
-  <h1>Company list</h1>
-  <hr />
+<h1>Company List</h1>
+<ul class="list-group">
+  <li class="list-group-item active" aria-current="true">{{stockList.ticker}}</li>
+  <hr>
+  <li class="list-group-item">{{stockList.Symbol}}</li>
+  <hr>
+  <li class="list-group-item"><img src="{{stockList.companyInformation.logoURL}}"</li>
+  <hr>
+  <li class="list-group-item">{{stockList.currentPrice}}</li>
+  <hr>
+  <li class="list-group-item">{{stockList.Marketcap}}</li>
+</ul>
 
-  <div class="row">      <div class="col-md-4">
-        <article class="stockticker">
-        <p>ticker: {{stockList.ticker}}</p>
-        <p>Logo: {{this.ticker}}</p>
-          <h2>{{this.ticker}}</h2>
-          <hr />
-          <p>Occupation: {{this.ticker}}</p>
-          <p>Weapon: <img src="{{stockList.companyInformation.logoURL}}" alt="logocompany" srcset=""></p>
-          <div class="btn-group" style="width: 100%">
-          </div>
-        </article>
-      </div>
 
-  </div>
+<a href="./stocks-views/stock-view.hbs">Check Stocks</a>
 
-</section>
+<a href="./news-views/news-view.hbs">Check News Feed</a>
+
+
+
+
+
+
+
