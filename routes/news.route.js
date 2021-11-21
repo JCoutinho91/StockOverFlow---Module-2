@@ -1,10 +1,8 @@
  const router = require("express").Router();
 
 
-
-
-router.get("/home", (req,res)=>{
-    res.render("/news-views/news-view")
+router.get("/newsfeed", (req,res)=>{
+    res.render("news-view")
 })
 
 

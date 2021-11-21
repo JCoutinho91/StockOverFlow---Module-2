@@ -9,6 +9,6 @@ const commentSchema = new Schema(
     timestamps: true,
   }
 );
-const Comment = model("User", commentSchema);
+const Comment = model("Comment", commentSchema);
 
 module.exports = Comment;
