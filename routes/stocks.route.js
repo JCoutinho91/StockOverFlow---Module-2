@@ -38,7 +38,7 @@ router.post("/stock-view-details/:stockId/create", async (req,res)=>{
   try{
   const gettingData = await axios.get(`https://www.styvio.com/apiV2/${stockId}/${process.env.API_KEY}`)
   const filteredComment = await Comment.create({ name: name , comment: comment , ticker : stockId})
-  res.redirect(`stock-view-details/${stockId}`)
+  res.redirect(`stock-view-details`)
   }
 catch(err){
   console.log(err)
