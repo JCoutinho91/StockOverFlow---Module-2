@@ -20,7 +20,6 @@ router.get("/stockcategory", (req, res) => {
 
 router.get("/stock-view-details/:stockId", (req,res)=>{
   const stockId = req.params.stockId
-  console.log(stockId);
   return axios.get(
     `https://www.styvio.com/apiV2/${stockId}/${process.env.API_KEY}`
   ).then((stock)=>{

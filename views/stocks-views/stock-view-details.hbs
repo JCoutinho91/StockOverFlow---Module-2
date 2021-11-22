@@ -1,6 +1,5 @@
 <h1>Stock Details</h1>
 
-
 <div class="row">
     <a href="/home-view">Home</a>
     <a href="/">Logout</a>
@@ -35,21 +34,19 @@
     <hr>
 <hr>
 <p><b>Make a comment</b></p>
-<form action="/stock-view-details/{{stockInfo.data.ticker}}" method="POST">
+<form action="/stock-view-details/{{stockInfo.data.ticker}}/create" method="POST">
   <label>Username:</label>
-  <input type="text" name="comment">
+  <input type="text" name="name">
   <br>
   <label>Comment:</label>
-  <input type="text" name="name">
+  <input type="text" name="comment">
   <button type="submit">Post</button>
 </form>
 <hr>
 
-{{!-- {{#each book.reviews}} --}}
-{{#each book.updatedReviews}}
-  <p>Comment: {{this.comment}}</p>
-  <p>userID: {{this.score}}</p>
+{{#each createdComment}}
+<p>Name: {{this.name}}</p>
+<p>Comment: {{this.comment}}</p>
+<hr>
 {{/each}}
-
-
 </div>
