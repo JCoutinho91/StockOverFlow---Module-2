@@ -31,8 +31,25 @@
         {{stockList.fundamentals.totalInstitutionalOwners}}
         </p>
 </div>
-
-
   </article>
+    <hr>
+<hr>
+<p><b>Make a comment</b></p>
+<form action="/stock-view-details/{{stockInfo.data.ticker}}" method="POST">
+  <label>Username:</label>
+  <input type="text" name="comment">
+  <br>
+  <label>Comment:</label>
+  <input type="text" name="name">
+  <button type="submit">Post</button>
+</form>
+<hr>
+
+{{!-- {{#each book.reviews}} --}}
+{{#each book.updatedReviews}}
+  <p>Comment: {{this.comment}}</p>
+  <p>userID: {{this.score}}</p>
+{{/each}}
+
 
 </div>

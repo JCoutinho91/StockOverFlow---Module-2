@@ -28,13 +28,5 @@ router.get("/stock-view-details/:stockId", (req,res)=>{
   })
 })
 
-
-
-
-
-
- 
-
-
-
 module.exports = router;
+
