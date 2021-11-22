@@ -31,30 +31,23 @@ router.get("/stock-view-details/:stockId", (req, res) => {
     res.render("./stocks-views/stock-view-details", { foundComment });
   });
 });
-/*
-router.post("/stock-view-details/:stockId", (req,res)=>{
-  const stockId = req.params.stockId
+
+router.post("/stock-view-details/:stockId/create", (req, res) => {
+  const stockId = req.params.stockId;
   const { name, comment } = req.body;
-  axios.get(
-    `https://www.styvio.com/apiV2/${stockId}/${process.env.API_KEY}`
-  ).then((stock)=>{
-    res.render("./stocks-views/stock-view-details", {stockInfo: stock})
-    
-
-  Comment.create({name,comment,ticker : stockId})
-  .then((createdComment)=>{
-  Comment.find({ticker: stockId})
-  .then((foundComment)=>{
-    console.log(foundComment)
-    res.render("./stocks-views/stock-view-details" , {foundComment})
-
-  })
-    res.render("./stocks-views/stock-view-details" , {createdComment})
-    //axios.get(`https://www.styvio.com/apiV2/${stockId}/${process.env.API_KEY}`)
-  })
-})
-
-})
-*/
+  try {
+    const gettingData = await axios.get(
+      `https://www.styvio.com/apiV2/${stockId}/${process.env.API_KEY}`
+    );
+    const filteredComment = await Comment.create({
+      name: name,
+      comment: comment,
+      ticker: stockId,
+    });
+    res.redirect(`stock-view-details`);
+  } catch (err) {
+    console.log(err);
+  }
+});
 
 module.exports = router;
