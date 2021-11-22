@@ -31,10 +31,11 @@
         </p>
 </div>
   </article>
+  {{!--
     <hr>
 <hr>
 <p><b>Make a comment</b></p>
-<form action="/stock-view-details/{{stockInfo.data.ticker}}/create" method="POST">
+<form action="/stock-view-details/{{stockInfo.data.ticker}}" method="POST">
   <label>Username:</label>
   <input type="text" name="name">
   <br>
@@ -44,9 +45,9 @@
 </form>
 <hr>
 
-{{#each createdComment}}
+{{!-- {{#each commentStock}}
 <p>Name: {{this.name}}</p>
 <p>Comment: {{this.comment}}</p>
-<hr>
 {{/each}}
+<hr>--}}
 </div>

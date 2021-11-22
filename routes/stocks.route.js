@@ -1,5 +1,8 @@
 const router = require("express").Router();
 const axios = require("axios");
+const Comment = require('./../models/Comment.model');
+
+
 require("dotenv").config();
 
 router.get("/stocks-views/stock-view", (req, res) => {
@@ -26,6 +29,18 @@ router.get("/stock-view-details/:stockId", (req,res)=>{
     res.render("./stocks-views/stock-view-details", {stockInfo: stock})
   })
 })
+router.post("/stock-view-details/:stockId", (req,res)=>{
+  const stockId = req.params.stockId
+  const { name, comment } = req.body;
+  const creatingComment = Comment.create({name,comment})
+  const stockData = axios.get(`https://www.styvio.com/apiV2/${stockId}/${process.env.API_KEY}`)
+
+  Promise.all([creatingComment, stockData])
+  .then((commentStock)=>{
+  res.render("./stocks-views/stock-view-details", {data: commentStock[0]})
+  })
+})
+
 
 module.exports = router;
 
