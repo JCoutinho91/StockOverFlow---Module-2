@@ -7,7 +7,6 @@ const urlTesla = `https://www.styvio.com/apiV2/TESL/${process.env.API_KEY}`
 const urlMicrosoft = `https://www.styvio.com/apiV2/MSFT/${process.env.API_KEY}`
 router.get("/stocks-views/stock-view", (req,res)=>{
      res.render("home-view")
-
     })
 
 router.get("/stockcategory", (req,res)=>{
@@ -24,4 +23,5 @@ router.get("/stockcategory", (req,res)=>{
 module.exports = router;
 
 
+//JOSE 
 //console.log("values", {values : values[4]});

@@ -1,31 +1,14 @@
 <h1>Company List</h1>
 
 <hr>
-
-<p>Ticker Symbol:{{stockList.0.data.ticker}}</p>
-<p>Company Name:{{stockList.0.data.companyInformation.shortName}}</p> 
-<p>Current Price:{{stockList.0.data.priceData.currentPrice}}</p> 
-<p>MarketCap: {{stockList.0.data.companyInformation.marketCap}}</p>
-<img src="{{stockList.0.data.companyInformation.logoURL}}" alt="" srcset="">
+{{#each stockList}}
+<p>Ticker Symbol:{{this.data.ticker}}</p>
+<p>Company Name:{{this.data.companyInformation.shortName}}</p> 
+<p>Current Price:{{this.data.priceData.currentPrice}}</p> 
+<p>MarketCap: {{this.data.companyInformation.marketCap}}</p>
+<img src="{{this.data.companyInformation.logoURL}}" alt="" srcset="">
 <hr>
-<p>Ticker Symbol:{{stockList.1.data.ticker}}</p> 
-<p>Company Name:{{stockList.1.data.companyInformation.shortName}}</p> 
-<p>Current Price:{{stockList.1.data.priceData.currentPrice}}</p> 
-<p>MarketCap: {{stockList.1.data.companyInformation.marketCap}}</p>
-<img src="{{stockList.1.data.companyInformation.logoURL}}" alt="" srcset="">
-<hr>
-<p>Ticker Symbol:{{stockList.2.data.ticker}}</p> 
-<p>Company Name:{{stockList.2.data.companyInformation.shortName}}</p> 
-<p>Current Price:{{stockList.2.data.priceData.currentPrice}}</p> 
-<p>MarketCap: {{stockList.2.data.companyInformation.marketCap}}</p>
-<img src="{{stockList.2.data.companyInformation.logoURL}}" alt="" srcset="">
-<hr>
-<p>Ticker Symbol:{{stockList.3.data.ticker}}</p> 
-<p>Company Name:{{stockList.3.data.companyInformation.shortName}}</p> 
-<p>Current Price:{{stockList.3.data.priceData.currentPrice}}</p> 
-<p>MarketCap: {{stockList.3.data.companyInformation.marketCap}}</p>
-<img src="{{stockList.3.data.companyInformation.logoURL}}" alt="" srcset="">
-<hr>
+{{/each}}
 
 <a href="/stock-details">VIEW {{values.companyInformation.shortName}} Details</a>
 
