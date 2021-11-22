@@ -6,10 +6,10 @@
         
         <div class="stock-details">
         <article class="stockDetail">
-        <h2>Stock Name: {{companyInformation.stockList.shortName}}</h2>
+        <h2>Stock Name: {{stockList.companyInformation.shortName}}</h2>
         <p>ticker: {{stockList.shortName}}</p>
         <p>Current Stock Price:
-        {{stockList.companyInformation.priceData.currentPrice}}</p>
+        {{stockList.priceData.currentPrice}}</p>
         <p>Company Logo:
         <img
             src="{{stockList.companyInformation.logoURL}}"
@@ -24,11 +24,11 @@
         {{stockList.companyInformation.companyAdress}}
         </p>
         <p>Market Capitalization: {{stockList.companyInformation.marketCap}}</p>
-        <p>Balance Sheet: {{stockList.companyInformation.balanceSheet}}</p>
-        <p>Income Statement: {{stockList.companyInformation.incomeStatement}}</p>
+        <p>Balance Sheet: {{stockList.fundamentals.balanceSheet}}</p>
+        <p>Income Statement: {{stockList.fundamentals.incomeStatement}}</p>
         <p>
         Institutional Owners:
-        {{stockList.companyInformation.totalInstitutionalOwners}}
+        {{stockList.fundamentals.totalInstitutionalOwners}}
         </p>
 </div>
 

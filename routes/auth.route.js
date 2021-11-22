@@ -86,7 +86,7 @@ router.post("/home-view", (req, res) => {
         throw new Error("Wrong credentials");
       } else if (isCorrectPassword) {
         req.session.user = user;
-        res.redirect("/home-view");
+        res.redirect("home-view");
       }
     })
     .catch((err) => {

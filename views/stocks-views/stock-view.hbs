@@ -1,21 +1,25 @@
 <h1>Company List</h1>
-<ol class="list-group">
-  <li class="list-group-item active" aria-current="true">{{stockList.ticker}}</li>
-  <li class="list-group-item">{{stockList.Symbol}}</li>
-  <li class="list-group-item"><img src="{{stockList.companyInformation.logoURL}}"</li>
-  <li class="list-group-item">{{stockList.currentPrice}}</li>
-  <li class="list-group-item">{{stockList.Marketcap}}</li>
-</ol>
+
+<hr>
+
+<p>Ticker Symbol:{{appleList.ticker}}</p> 
+<p>Company Name:{{appleList.companyInformation.shortName}}</p> 
+<p>Current Price:{{appleList.priceData.currentPrice}}</p> 
+<p>MarketCap: {{appleList.companyInformation.marketCap}}</p> 
+<img src="{{appleList.companyInformation.logoURL}}" alt="" srcset="">
+
+<a href="/stock-details">VIEW {{appleList.companyInformation.shortName}} Details</a>
+
+<hr>
+<hr>
 
 
 
+<p>Ticker Symbol:{{amazonList.ticker}}</p> 
+<p>Company Name:{{amazonList.companyInformation.shortName}}</p> 
+<p>Current Price:{{amazonList.priceData.currentPrice}}</p> 
+<p>MarketCap: {{amazonList.companyInformation.marketCap}}</p> 
+<img src="{{amazonList.companyInformation.logoURL}}" alt="" srcset="">
 
-
-{{!-- test test --}}
-
-
-
-
-
-
+<a href="/stock-details">VIEW {{amazonList.companyInformation.shortName}} Details</a>
 
