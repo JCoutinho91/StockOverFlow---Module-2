@@ -1,14 +1,14 @@
 <h1>Stock Details</h1>
 
+
 <div class="row">
     <a href="/home-view">Home</a>
     <a href="/">Logout</a>
-        
         <div class="stock-details">
-        <article class="stockDetail">
-        <h2>Stock Name: {{stockList.companyInformation.shortName}}</h2>
-        <p>ticker: {{stockList.shortName}}</p>
-        <p>Current Stock Price:
+        <article class="stockDetail"> 
+        <h2>Stock2131231231 Name: {{stockList.0.data.ticker}}</h2>
+        <p>ticker: {{stockInfo.data.ticker}}</p>
+        <p>Current Price:
         {{stockList.priceData.currentPrice}}</p>
         <p>Company Logo:
         <img
@@ -31,6 +31,7 @@
         {{stockList.fundamentals.totalInstitutionalOwners}}
         </p>
 </div>
+
 
   </article>
 
