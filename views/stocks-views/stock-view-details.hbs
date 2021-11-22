@@ -6,7 +6,7 @@
         <div class="stock-details">
         <article class="stockDetail"> 
         <h2>Stock2131231231 Name: {{stockList.0.data.ticker}}</h2>
-        <p>ticker: {{stockInfo.data.ticker}}</p>
+        <p>ticker: {{data.stockInfo.data.ticker}}</p>
         <p>Current Price:
         {{stockList.priceData.currentPrice}}</p>
         <p>Company Logo:
@@ -34,7 +34,7 @@
     <hr>
 <hr>
 <p><b>Make a comment</b></p>
-<form action="/stock-view-details/{{stockInfo.data.ticker}}" method="POST">
+<form action="/stock-view-details/create/{{stockInfo.data.ticker}}" method="POST">
   <label>Username:</label>
   <input type="text" name="name">
   <br>
@@ -44,9 +44,9 @@
 </form>
 <hr>
 
-{{#each foundComment}}
-<p>Name: {{foundComment.name}}</p>
-<p>Comment: {{foundComment.comment}}</p>
+{{#each data.foundComment}}
+<p>Name: {{this.name}}</p>
+<p>Comment: {{this.comment}}</p>
 {{/each}}
 <hr>
 
