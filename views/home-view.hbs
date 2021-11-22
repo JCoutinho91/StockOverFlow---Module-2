@@ -1,20 +1,31 @@
 <h1>Company List</h1>
 
+<h2>Latest new's from the market:</h2>
+{{#each stockList}}
+  <ul class="home-stocks">
+    <li><a href="/news-view-detail/{{this.data.ticker}}">
+        {{this.data.companyInformation.shortName}}</a>
+    </li>
+  </ul>
+{{/each}}
+
 <ul>
+  <li>
+    <a href="/newsfeed">Check More new's over here</a>
+  </li>
 </ul>
 
-<h2>Main Stock's new from today</h2>
-<ul class="home-news">
-  <li><a href="/news-view/"></a>News1</li>
-  <li><a href="/news-view/"></a>News2</li>
-  <li><a href="/news-view/"></a>News3</li>
-  <li><a href="/newsfeed">Check More new's over here</a></li>
-</ul>
+<h2>Check the stocks from: </h2>
+{{#each stockList}}
+  <ul class="home-stocks">
+    <li><a href="/stock-view-details/{{this.data.ticker}}">
+        {{this.data.companyInformation.shortName}}</a>
+    </li>
+  </ul>
+{{/each}}
 
-<h2>Chek some Stock's</h2>
-<ul class="home-stocks">
-  <li><a href="/stock-view-details/{{stockInfo.data.ticker}}"></a>Stock1</li>
-  <li><a href="/stock-view-details/{{stockInfo.data.ticker}}"></a>Stock2</li>
-  <li><a href="/stock-view-details/{{stockInfo.data.ticker}}"></a>Stock3</li>
-  <li><a href="/stockcategory">Check Stocks Category 1</a></li>
+<ul>
+  <li>
+    <a href="/stockcategory">Check more stocks clinking here</a>
+  </li>
 </ul>

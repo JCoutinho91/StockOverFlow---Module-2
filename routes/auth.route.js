@@ -2,6 +2,8 @@ const router = require("express").Router();
 const User = require("./../models/User.model");
 const bcrypt = require("bcryptjs");
 const zxcvbn = require("zxcvbn");
+const axios = require("axios");
+require("dotenv").config();
 //Importing Needed Packages
 
 const saltRounds = 10;
@@ -10,9 +12,28 @@ router.get("/signup", (req, res) => {
   res.render("auth-views/signup-form");
 });
 
+/*
+// ! original - /home-view
 router.get("/home-view", (req, res) => {
   res.render("home-view");
 });
+*/
+
+// ! modified - home-view -->
+router.get("/home-view", (req, res) => {
+  const arrayStocks = ["AAPL", "AMZN"];
+  // !this comment is just to separate to show less stocks for tests
+  // , "TESL", "MSFT", "AA", "GOOG"];
+  const stocksPrs = arrayStocks.map((ticker) => {
+    return axios.get(
+      `https://www.styvio.com/apiV2/${ticker}/${process.env.API_KEY}`
+    );
+  });
+  Promise.all(stocksPrs).then((values) => {
+    res.render("home-view", { stockList: values });
+  });
+});
+// ! modified - home-view <--
 
 router.post("/signup", (req, res) => {
   const { username, password } = req.body;

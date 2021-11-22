@@ -1,12 +1,12 @@
 <h1>Company List</h1>
 
-<hr>
+<hr />
 {{#each stockList}}
-<p>Ticker Symbol:{{this.data.ticker}}</p>
-<p>Company Name:{{this.data.companyInformation.shortName}}</p> 
-<p>Current Price:{{this.data.priceData.currentPrice}}</p> 
-<p>MarketCap: {{this.data.companyInformation.marketCap}}</p>
-<img src="{{this.data.companyInformation.logoURL}}" alt="logo" srcset="">
-<p><a href="/stock-view-details/{{this.data.ticker}}">VIEW MORE</a></p>
-<hr>
+  <p>Ticker Symbol:{{this.data.ticker}}</p>
+  <p>Company Name:{{this.data.companyInformation.shortName}}</p>
+  <p>Current Price:{{this.data.priceData.currentPrice}}</p>
+  <p>MarketCap: {{this.data.companyInformation.marketCap}}</p>
+  <img src="{{this.data.companyInformation.logoURL}}" alt="logo" srcset="" />
+  <p><a href="/stock-view-details/{{this.data.ticker}}">VIEW MORE</a></p>
+  <hr />
 {{/each}}
