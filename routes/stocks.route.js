@@ -31,19 +31,13 @@ router.get("/stock-view-details/:stockId", isLoggedIn, async (req, res) => {
     );
     const filteredCommentsCopy = [...filteredComments];
 
-<<<<<<< HEAD
     const updatedComments = filteredCommentsCopy.map((commentObj) => {
       return {
         ...commentObj._doc,
         isCreator: userId === String(commentObj.creator._id),
       };
     });
-=======
-    const updatedComments = filteredCommentsCopy.map((commentObj)=>{
-     return {...commentObj._doc, isCreator: userId === String(commentObj.creator._id) }
-      })
-      console.log(updatedComments)
->>>>>>> 21e04ee9d5a7df7299618374c6655abd2802bdf0
+    console.log(updatedComments);
     res.render("./stocks-views/stock-view-details", {
       data: {
         stockInfo: gettingData,
@@ -69,29 +63,14 @@ router.post("/stock-view-details/:stockID/create", isLoggedIn, (req, res) => {
   res.redirect(`/stock-view-details/${stockId}`);
 });
 
-<<<<<<< HEAD
-router.get("/comment-edit/editstock/:commentId", isLoggedIn, (req, res) => {
+router.get("/comment-edit/editstock/commentId", isLoggedIn, (req, res) => {
   const userId = req.session.user._id;
-  const commentID = req.params.commentId;
-  console.log(userId);
-  console.log();
-  Comment.findById({ commentID }).then((foundComment) => {
+  const commentIDD = req.params.commentId;
+
+  Comment.findById({ commentIDD }).then((foundComment) => {
     console.log(foundComment);
     res.render("./stocks-views/comment-edit-view", { foundComment });
   });
 });
-=======
-router.get("/comment-edit/editstock/commentId", isLoggedIn, (req,res)=>{
-  const userId = req.session.user._id
-  const commentIDD = req.params.commentId
-
-   Comment.findById({commentIDD})
-  .then((foundComment)=>{
-    console.log(foundComment)
-    res.render("./stocks-views/comment-edit-view", { foundComment } );
-  })
-})
-  
->>>>>>> 21e04ee9d5a7df7299618374c6655abd2802bdf0
 
 module.exports = router;
