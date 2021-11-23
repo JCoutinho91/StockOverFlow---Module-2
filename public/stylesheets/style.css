@@ -1,6 +1,7 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-color: lightgrey;
 }
 
 a {
@@ -9,4 +10,12 @@ a {
 
 h1 {
   color: 15px;
+}
+
+.container-index {
+  width: 400px;
+}
+
+.container-index button {
+  width: 100%;
 }

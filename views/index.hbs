@@ -1,23 +1,49 @@
 <!-- LOGIN FORM -->
-<div class="container">
-  <form id="form" action="/home-view" method="POST">
+<div class="index-page">
+  <div class="container-index flex-column">
+    <form id="form" action="/home-view" method="POST">
 
-    <label for="username">Username</label><br />
-    <input type="text" name="username" placeholder="Your username" />
+      <div class="input-group mb-3">
+        <label
+          for="username"
+          class="input-group-text"
+          id="inputGroup-sizing-default"
+        >Username</label>
+        <input
+          type="text"
+          name="username"
+          class="form-control"
+          aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-default"
+        />
+      </div>
 
-    <label for="password">Password</label><br />
-    <input type="password" name="password" />
+      <div class="input-group mb-3">
+        <label
+          for="password"
+          class="input-group-text"
+          id="inputGroup-sizing-default"
+        >Password</label>
+        <input
+          type="password"
+          name="password"
+          class="form-control"
+          aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-default"
+        />
+      </div>
+      <button class="btn btn-outline-secondary" type="submit">Login</button>
 
-    <button type="submit">Login</button>
-  </form>
+    </form>
+    <!-- SIGN UP BUTTON -->
+    <a href="/signup">
+      <button class="btn btn-outline-secondary">Signup</button>
+    </a>
+  </div>
+  {{! error message display: }}
 
-  <!-- SIGN UP BUTTON -->
-  <a href="/signup">
-    <button>Signup</button>
-  </a>
+  {{#if errorMessage}}
+    <div class="error-message">{{errorMessage}}</div>
+  {{/if}}
+
 </div>
-{{! error message display: }}
-
-{{#if errorMessage}}
-  <div class="error-message">{{errorMessage}}</div>
-{{/if}}
