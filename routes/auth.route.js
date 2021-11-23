@@ -3,6 +3,7 @@ const User = require("./../models/User.model");
 const bcrypt = require("bcryptjs");
 const zxcvbn = require("zxcvbn");
 const axios = require("axios");
+const isLoggedIn = require("./../middleware/isLoggedIn")
 require("dotenv").config();
 //Importing Needed Packages
 
@@ -60,8 +61,7 @@ router.post("/signup", (req, res) => {
     })
     .then((hashedPassword) => {
       // Create the new user
-      return User.create({ username: username, password: hashedPassword });
-      // return User.create({ username, password: hashedPassword });
+      return User.create({ username: username, password: hashedPassword});
     })
     .then((createdUser) => {
       // Redirect to the home `/` page after the successful signup
@@ -115,6 +115,16 @@ router.post("/home-view", (req, res) => {
         errorMessage: err.message || "Provide username and password.",
       });
     });
+});
+
+router.get("/logout", isLoggedIn, (req, res) => {
+
+  req.session.destroy((err) => {
+    if (err) {
+      return res.render("error");
+    }
+    res.redirect("/");
+  });
 });
 
 module.exports = router;

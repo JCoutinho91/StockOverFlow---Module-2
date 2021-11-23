@@ -5,6 +5,7 @@ const commentSchema = new Schema(
     name: { type: String, required: true, default: "Anonymous" },
     comment: { type: String, required: true },
     ticker: { type: String, required: true },
+    creator : { type: Schema.Types.ObjectId, ref: "User", required:true }
   },
   {
     timestamps: true,

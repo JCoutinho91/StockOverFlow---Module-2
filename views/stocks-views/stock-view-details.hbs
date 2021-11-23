@@ -2,32 +2,32 @@
 
 <div class="row">
     <a href="/home-view">Home</a>
-    <a href="/">Logout</a>
+    <a href="/logout">Logout</a>
         <div class="stock-details">
         <article class="stockDetail"> 
-        <h2>Stock2131231231 Name: {{stockList.0.data.ticker}}</h2>
+        <h2> {{data.stockInfo.data.companyInformation.shortName}}</h2>
         <p>ticker: {{data.stockInfo.data.ticker}}</p>
         <p>Current Price:
-        {{stockList.priceData.currentPrice}}</p>
-        <p>Company Logo:
+        {{data.stockInfo.priceData.currentPrice}}</p>
+        <p>
         <img
-            src="{{stockList.companyInformation.logoURL}}"
+            src="{{data.stockInfo.data.companyInformation.logoURL}}"
             alt="logocompany"
             srcset=""
         /></p>
         <p>Brief of the Company:
-        {{stockList.companyInformation.companyDescription}}</p>
+        {{data.stockInfo.data.companyInformation.companyDescription}}</p>
         <p>
         Address:
-        {{stockList.companyInformation.companyLocation}}
-        {{stockList.companyInformation.companyAdress}}
+        {{data.stockInfo.data.companyInformation.companyLocation}}
+        {{data.stockInfo.data.companyInformation.companyAdress}}
         </p>
-        <p>Market Capitalization: {{stockList.companyInformation.marketCap}}</p>
-        <p>Balance Sheet: {{stockList.fundamentals.balanceSheet}}</p>
-        <p>Income Statement: {{stockList.fundamentals.incomeStatement}}</p>
+        <p>Market Capitalization: {{data.stockInfo.data.companyInformation.marketCap}}</p>
+        <p>Balance Sheet: {{data.stockInfo.data.fundamentals.balanceSheet}}</p>
+        <p>Income Statement: {{data.stockInfo.data.fundamentals.incomeStatement}}</p>
         <p>
         Institutional Owners:
-        {{stockList.fundamentals.totalInstitutionalOwners}}
+        {{data.stockInfo.data.fundamentals.totalInstitutionalOwners}}
         </p>
 </div>
   </article>
@@ -47,6 +47,11 @@
 {{#each data.foundComment}}
 <p>Name: {{this.name}}</p>
 <p>Comment: {{this.comment}}</p>
+<p>creator: {{this.creator.username}}</p>
+{{#if this.isCreator}}
+<a href="/stock-view-details/{{data.stockInfo.data.ticker}}/edit"> <button type="submit">Edit</button></a>
+<a href="/stock-view-details/{{data.stockInfo.data.ticker}}/delete"></a><button type="submit">Delete</button></a>
+{{/if}}
 {{/each}}
 <hr>
 

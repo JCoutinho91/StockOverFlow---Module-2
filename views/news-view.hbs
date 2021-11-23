@@ -2,11 +2,14 @@
 
 <h2>Latest from XXXX stock'market</h2>
 {{! * HERE WE SHOULD DISPLAY THE STOCK'S FROM XXX MARKET }}
-{{#each stockList}}
-  <ul class="home-stocks">
-    <li><a href="/news-view-detail/{{this.data.ticker}}">
+
+<a href="/news-view-detail/">
         {{! Im having issues to display the news array proprieties }}
-        {{this.data.companyInformation.newsData}}</a>
-    </li>
-  </ul>
-{{/each}}
+        {{#each newsList}}</a>
+       <p> {{this.newsArticle}}</p>
+       <p> {{this.newsSource}}</p>
+       <p> {{this.newsLink}}</p>
+        <p>{{this.newsDate}}</p>
+        <hr>
+        {{/each}}
+
