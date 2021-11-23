@@ -57,11 +57,12 @@ router.post("/stock-view-details/:stockID/create", isLoggedIn, (req, res) => {
   res.redirect(`/stock-view-details/${stockId}`);
 });
 
-router.get("/comment-edit/editstock/commentId", isLoggedIn, (req,res)=>{
+router.get("/comment-edit/editstock/:commentId", isLoggedIn, (req,res)=>{
   const userId = req.session.user._id
-  const commentIDD = req.params.commentId
+  const commentID = req.params.commentId
+  console.log(commentID)
 
-   Comment.findById({commentIDD})
+   Comment.findById(commentID)
   .then((foundComment)=>{
     console.log(foundComment)
     res.render("./stocks-views/comment-edit-view", { foundComment } );
