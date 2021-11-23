@@ -37,8 +37,6 @@ router.get("/stock-view-details/:stockId", isLoggedIn, async (req, res) => {
         isCreator: userId === String(commentObj.creator._id),
       };
     });
-
-    console.log("updatedComments", updatedComments);
     res.render("./stocks-views/stock-view-details", {
       data: {
         stockInfo: gettingData,
@@ -64,13 +62,14 @@ router.post("/stock-view-details/:stockID/create", isLoggedIn, (req, res) => {
   res.redirect(`/stock-view-details/${stockId}`);
 });
 
-router.get("/stock-view-details/:stockID/edit", isLoggedIn, (req, res) => {
-  const StockId = req.params.stockID;
+router.get("/comment-edit/editstock/:commentId", isLoggedIn, (req, res) => {
   const userId = req.session.user._id;
+  const commentID = req.params.commentId;
   console.log(userId);
   console.log();
-  Comment.find({ creator: userId }).then((foundComment) => {
-    res.render(`/stocks-views/${stockId}/comment-edit-view`, { foundComment });
+  Comment.findById({ commentID }).then((foundComment) => {
+    console.log(foundComment);
+    res.render("./stocks-views/comment-edit-view", { foundComment });
   });
 });
 
