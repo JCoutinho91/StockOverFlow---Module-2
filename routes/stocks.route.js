@@ -50,12 +50,9 @@ router.post("/stock-view-details/:stockID/create", isLoggedIn, (req, res) => {
   const stockId = req.params.stockID;
   const { name, comment } = req.body;
   const userId = req.session.user._id
-  console.log(userId)
   Comment
   .create({ name: name, comment: comment, ticker: stockId, creator: userId })
   .then((createdComment) => {
-    console.log(createdComment)
-    //return User.findById(User._id, {$push: {comments: createdComment._id}})
     }
   );
   res.redirect(`/stock-view-details/${stockId}`);
@@ -64,6 +61,14 @@ router.post("/stock-view-details/:stockID/create", isLoggedIn, (req, res) => {
 router.get("/stock-view-details/:stockID/edit", isLoggedIn, (req,res)=>{
   const StockId = req.params.stockID
   const userId = req.session.user._id
+  console.log(userId)
+  console.log()
+  Comment.find({creator: userId})
+  .then((foundComment)=>{
+    res.render(`/stocks-views/${stockId}/comment-edit-view`, { foundComment } );
+  
+
+  })
 })
   
 
