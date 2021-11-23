@@ -49,7 +49,7 @@
 <p>Comment: {{this.comment}}</p>
 <p>creator: {{this.creator.username}}</p>
 {{#if this.isCreator}}
-<a href="/stock-view-details/edit"> <button type="submit">Edit</button></a>
+<a href="/comment-edit/editstock/{{comment._id}}"> <button type="submit">Edit</button></a>
 <a href="/stock-view-details/{{data.stockInfo.data.ticker}}/delete"></a><button type="submit">Delete</button></a>
 {{/if}}
 {{/each}}
