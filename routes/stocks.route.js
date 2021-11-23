@@ -7,9 +7,20 @@ require("dotenv").config();
 router.get("/stocks-views/stock-view", isLoggedIn, (req, res) => {
   res.render("home-view");
 });
-
-router.get("/stockcategory", isLoggedIn, (req, res) => {
-  const arrayStocks = ["AAPL", "AMZN", "TESL", "MSFT", "AA", "GOOG"];
+//! TECH LIST
+router.get("/techcategory", isLoggedIn, (req, res) => {
+  const arrayStocks = [
+    "AAPL",
+    "AMZN",
+    "TESL",
+    "MSFT",
+    "UBER",
+    "GOOG",
+    "NVDA",
+    "GME",
+    "NFLX",
+    "PYPL",
+  ];
   const stocksPrs = arrayStocks.map((ticker) => {
     return axios.get(
       `https://www.styvio.com/apiV2/${ticker}/${process.env.API_KEY}`
@@ -19,6 +30,201 @@ router.get("/stockcategory", isLoggedIn, (req, res) => {
     res.render("./stocks-views/stock-view", { stockList: values });
   });
 });
+// ! HEALTHCARE
+router.get("/healthcategory", isLoggedIn, (req, res) => {
+  const arrayStocks = [
+    "BMY",
+    "PFE",
+    "MRK",
+    "MDT",
+    "MRNA",
+    "BSX",
+    "ABBV",
+    "JNJ",
+    "GILD",
+    "VTRS",
+  ];
+  const stocksPrs = arrayStocks.map((ticker) => {
+    return axios.get(
+      `https://www.styvio.com/apiV2/${ticker}/${process.env.API_KEY}`
+    );
+  });
+  Promise.all(stocksPrs).then((values) => {
+    res.render("./stocks-views/stock-view", { stockList: values });
+  });
+});
+
+// ! industrialcategory
+router.get("/industrialcategory", isLoggedIn, (req, res) => {
+  const arrayStocks = [
+    "AAL",
+    "CSX",
+    "DAL",
+    "BA",
+    "UAL",
+    "RTX",
+    "LUV",
+    "GE",
+    "CARR",
+    "HON",
+  ];
+  const stocksPrs = arrayStocks.map((ticker) => {
+    return axios.get(
+      `https://www.styvio.com/apiV2/${ticker}/${process.env.API_KEY}`
+    );
+  });
+  Promise.all(stocksPrs).then((values) => {
+    res.render("./stocks-views/stock-view", { stockList: values });
+  });
+});
+
+// ! BANKS
+router.get("/financialcategory", isLoggedIn, (req, res) => {
+  const arrayStocks = [
+    "BAC",
+    "WFC",
+    "C",
+    "JPM",
+    "MS",
+    "AIG",
+    "HBAN",
+    "KEY",
+    "AXP",
+    "USB",
+  ];
+  const stocksPrs = arrayStocks.map((ticker) => {
+    return axios.get(
+      `https://www.styvio.com/apiV2/${ticker}/${process.env.API_KEY}`
+    );
+  });
+  Promise.all(stocksPrs).then((values) => {
+    res.render("./stocks-views/stock-view", { stockList: values });
+  });
+});
+
+// ! ENERGY
+router.get("/energycategory", isLoggedIn, (req, res) => {
+  const arrayStocks = [
+    "OXY",
+    "MRO",
+    "XOM",
+    "HAL",
+    "APA",
+    "DVN",
+    "CVX",
+    "COP",
+    "SLB",
+    "KMI",
+  ];
+  const stocksPrs = arrayStocks.map((ticker) => {
+    return axios.get(
+      `https://www.styvio.com/apiV2/${ticker}/${process.env.API_KEY}`
+    );
+  });
+  Promise.all(stocksPrs).then((values) => {
+    res.render("./stocks-views/stock-view", { stockList: values });
+  });
+});
+
+// ! COMMUNICATIONS
+router.get("/communicationcategory", isLoggedIn, (req, res) => {
+  const arrayStocks = [
+    "T",
+    "TWTR",
+    "FB",
+    "ATVI",
+    "VIAC",
+    "DIS",
+    "VZ",
+    "LUMN",
+    "EA",
+    "TMUS",
+  ];
+  const stocksPrs = arrayStocks.map((ticker) => {
+    return axios.get(
+      `https://www.styvio.com/apiV2/${ticker}/${process.env.API_KEY}`
+    );
+  });
+  Promise.all(stocksPrs).then((values) => {
+    res.render("./stocks-views/stock-view", { stockList: values });
+  });
+});
+
+//! CONSUMERS STAPLES
+
+router.get("/consumerscategory", isLoggedIn, (req, res) => {
+  const arrayStocks = [
+    "KO",
+    "WMT",
+    "KHC",
+    "PG",
+    "KR",
+    "WBA",
+    "MDLZ",
+    "MO",
+    "PM",
+    "PEP",
+  ];
+  const stocksPrs = arrayStocks.map((ticker) => {
+    return axios.get(
+      `https://www.styvio.com/apiV2/${ticker}/${process.env.API_KEY}`
+    );
+  });
+  Promise.all(stocksPrs).then((values) => {
+    res.render("./stocks-views/stock-view", { stockList: values });
+  });
+});
+
+// !! REAL-ESTATE
+
+router.get("/realestatecategory", isLoggedIn, (req, res) => {
+  const arrayStocks = [
+    "HST",
+    "O",
+    "AMT",
+    "WY",
+    "KIM",
+    "PLD",
+    "CBRE",
+    "IRM",
+    "VTR",
+    "DLR",
+  ];
+  const stocksPrs = arrayStocks.map((ticker) => {
+    return axios.get(
+      `https://www.styvio.com/apiV2/${ticker}/${process.env.API_KEY}`
+    );
+  });
+  Promise.all(stocksPrs).then((values) => {
+    res.render("./stocks-views/stock-view", { stockList: values });
+  });
+});
+
+// !! COMPANIES WITH MOST VOLUME
+
+router.get("/volumecategory", isLoggedIn, (req, res) => {
+  const arrayStocks = [
+    "F",
+    "AAPL",
+    "AMD",
+    "NVDA",
+    "BAC",
+    "MU",
+    "T",
+    "AAL",
+    "MSFT",
+    "TSLA",
+  ];
+  const stocksPrs = arrayStocks.map((ticker) => {
+    return axios.get(
+      `https://www.styvio.com/apiV2/${ticker}/${process.env.API_KEY}`
+    );
+  });
+  Promise.all(stocksPrs).then((values) => {
+    res.render("./stocks-views/stock-view", { stockList: values });
+  });
+});
+
 router.get("/stock-view-details/:stockId", isLoggedIn, async (req, res) => {
   const stockId = req.params.stockId;
   const userId = req.session.user._id;
@@ -63,14 +269,37 @@ router.post("/stock-view-details/:stockID/create", isLoggedIn, (req, res) => {
   res.redirect(`/stock-view-details/${stockId}`);
 });
 
-router.get("/comment-edit/editstock/commentId", isLoggedIn, (req, res) => {
+router.get("/comment-edit/editstock/:commentId", isLoggedIn, (req, res) => {
   const userId = req.session.user._id;
-  const commentIDD = req.params.commentId;
+  const commentID = req.params.commentId;
+  console.log(commentID);
 
-  Comment.findById({ commentIDD }).then((foundComment) => {
+  Comment.findById(commentID).then((foundComment) => {
     console.log(foundComment);
     res.render("./stocks-views/comment-edit-view", { foundComment });
   });
+});
+
+router.post("/comment-edit/editstock/:commentId", (req, res) => {
+  const commentID = req.params.commentId;
+  const { name, comment, creator } = req.body;
+
+  Comment.findByIdAndUpdate(commentID, { name, comment }, { new: true })
+    .then((updatedComment) => {
+      // console.log(updatedComment)
+    })
+    .catch((err) => console.log(err));
+});
+
+router.post("/comment-edit/delete/:commentId", (req, res) => {
+  console.log("in post");
+  const commentID = req.params.commentId;
+  Comment.findByIdAndRemove(commentID)
+    .then((status) => {
+      console.log("deleted comment", status);
+      res.redirect("./../../home-view");
+    })
+    .catch((err) => console.log(err));
 });
 
 module.exports = router;

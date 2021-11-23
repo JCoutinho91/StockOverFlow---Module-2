@@ -1,4 +1,16 @@
+<h2>Edit your Comment</h2>
+<hr>
 
-<p>Name: {{foundComment.name}}</p>
-<p>Comment: {{foundComment.comment}}</p>
-<p>creator: {{foundComment.creator.username}}</p>
+<form action="/comment-edit/editstock/{{foundComment._id}}" method="POST">
+  <label>Name:</label>
+  <input type="text" name="name" value="{{foundComment.name}}" />
+
+  <label>Comment:</label>
+  <input type="text" name="comment" value="{{foundComment.comment}}" />
+
+  <button type="submit">Save changes</button>
+</form>
+<hr />
+<form action="/comment-edit/delete/{{foundComment._id}}" method="POST">
+  <button type="submit">Delete</button>
+</form>
