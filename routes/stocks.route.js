@@ -32,6 +32,7 @@ router.get("/stock-view-details/:stockId",isLoggedIn, async (req, res) => {
     const updatedComments = filteredCommentsCopy.map((commentObj)=>{
      return {...commentObj._doc, isCreator: userId === String(commentObj.creator._id) }
       })
+      console.log(updatedComments)
     res.render("./stocks-views/stock-view-details", {
       data: {
         stockInfo: gettingData,
@@ -56,12 +57,11 @@ router.post("/stock-view-details/:stockID/create", isLoggedIn, (req, res) => {
   res.redirect(`/stock-view-details/${stockId}`);
 });
 
-router.get("/comment-edit/editstock/:commentId", isLoggedIn, (req,res)=>{
+router.get("/comment-edit/editstock/commentId", isLoggedIn, (req,res)=>{
   const userId = req.session.user._id
-  const commentID = req.params.commentId
-  console.log(userId)
-  console.log()
-  Comment.findById({commentID})
+  const commentIDD = req.params.commentId
+
+   Comment.findById({commentIDD})
   .then((foundComment)=>{
     console.log(foundComment)
     res.render("./stocks-views/comment-edit-view", { foundComment } );
