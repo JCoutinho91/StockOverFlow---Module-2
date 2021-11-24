@@ -1,15 +1,15 @@
 <h1>MY PROFILE</h1>
 
-<p> <img src="{{userprofile.imageUrl}}" alt="profilepicture" srcset=""> </p>
+<p> <img src="{{userprofile.userInfo.imageUrl}}" alt="profilepicture" srcset=""> </p>
 
-<p> FIRST NAME: {{userprofile.firstname}} </p>
+<p> FIRST NAME: {{userprofile.userInfo.firstname}} </p>
 
-<p>LAST NAME:  {{userprofile.lastname}}</p>
+<p>LAST NAME:  {{userprofile.userInfo.lastname}}</p>
 
-<p> AGE:  {{userprofile.age}}</p>
+<p> AGE:  {{userprofile.userInfo.age}}</p>
 
-<p> ABOUT ME: {{userprofile.aboutme}}</p>
+<p> ABOUT ME: {{userprofile.userInfo.aboutme}}</p>
 
 <p>FAVORITE STOCKS:</p>
 
-<BUtton> <a href="/Profite-edit/{{userprofile._id}}">Edit Info</a></BUtton>
+<Button> <a href="/Profite-edit/{{userprofile._id}}">Edit Info</a></Button>

@@ -4,6 +4,7 @@ const userSchema = new Schema(
   {
     username: { type: String, required: true, unique: true},
     password: { type: String, required: true },
+    userInfo: { type: Schema.Types.ObjectId, ref: "UserInfo", required:true }
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
