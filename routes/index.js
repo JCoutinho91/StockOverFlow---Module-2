@@ -21,7 +21,8 @@ router.get("/search/:stockId", (req, res) => {
 
 router.get("/Profile/:userID", (req, res) => {
   const thisUser = req.params.userID;
-  UserInfo.findOneAndUpdate({ user: thisUser }).then((foundUser) => {
+  UserInfo.findOneAndUpdate({ user: thisUser })
+  .then((foundUser) => {
     console.log(foundUser);
     res.render(`profile-view`, { userprofile: foundUser });
   });

@@ -53,7 +53,7 @@ router.post("/signup", (req, res) => {
       return User.create({ username: username, password: hashedPassword });
     })
     .then((createdUser) => {
-      UserInfo.create({});
+      UserInfo.create();
     })
     .then((createdInfo) => {
       console.log(createdInfo);
@@ -111,6 +111,7 @@ router.post("/home-view", (req, res) => {
 });
 
 router.get("/logout", isLoggedIn, (req, res) => {
+  
   req.session.destroy((err) => {
     if (err) {
       return res.render("error");
