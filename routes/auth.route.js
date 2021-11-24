@@ -35,13 +35,18 @@ router.post("/signup", (req, res) => {
     });
     return;
   }
+ let createdUserInfo;
 
   User.findOne({ username: username })
     .then((foundUser) => {
       if (foundUser) {
         throw new Error("The username is taken");
       }
+      return UserInfo.create({});
       // Generating the salt string
+    })
+    .then((userInfo)=>{
+      createdUserInfo = userInfo
       return bcrypt.genSalt(saltRounds);
     })
     .then((salt) => {
@@ -49,16 +54,9 @@ router.post("/signup", (req, res) => {
       return bcrypt.hash(password, salt);
     })
     .then((hashedPassword) => {
-      // Create the new user
-      return User.create({ username: username, password: hashedPassword });
+      return User.create({ username: username, password: hashedPassword, userInfo: createdUserInfo._id });
     })
     .then((createdUser) => {
-      UserInfo.create();
-    })
-    .then((createdInfo) => {
-      console.log(createdInfo);
-    })
-    .then(() => {
       res.redirect("/");
     })
     .catch((err) => {
@@ -111,7 +109,7 @@ router.post("/home-view", (req, res) => {
 });
 
 router.get("/logout", isLoggedIn, (req, res) => {
-  
+
   req.session.destroy((err) => {
     if (err) {
       return res.render("error");

@@ -2,7 +2,7 @@
 <div class="signup-form">
   <h1>StockOverFlow</h1>
 
-  <form id="form" action="/profite-edit/{{user}}" method="POST" enctype="multipart/form-data">
+  <form id="form" action="/profite-edit/{{user.userInfo._id}}" method="POST" enctype="multipart/form-data">
     <div class="input-group mb-3">
       <label
         for="username"
@@ -12,7 +12,7 @@
       <br />
       <input
         type="text"
-        name="firstname"
+        name="firstname" value="{{user.userInfo.firstname}}"
         class="form-control"
         aria-label="Sizing example input"
         aria-describedby="inputGroup-sizing-default"
