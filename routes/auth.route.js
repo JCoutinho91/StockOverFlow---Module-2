@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const User = require("./../models/User.model");
+const UserInfo = require("./../models/UserInfo.model");
 const bcrypt = require("bcryptjs");
 const zxcvbn = require("zxcvbn");
 const axios = require("axios");
@@ -13,30 +14,15 @@ router.get("/signup", (req, res) => {
   res.render("auth-views/signup-form");
 });
 
-/*
-// ! original - /home-view
-router.get("/home-view", (req, res) => {
-  res.render("home-view");
-});
-*/
 
 // ! modified - home-view -->
-router.get("/home-view", (req, res) => {
-  const arrayStocks = ["AAPL", "AMZN"];
-  // !this comment is just to separate to show less stocks for tests
-  // , "TESL", "MSFT", "AA", "GOOG"];
-  const stocksPrs = arrayStocks.map((ticker) => {
-    return axios.get(
-      `https://www.styvio.com/apiV2/${ticker}/${process.env.API_KEY}`
-    );
-  });
-  Promise.all(stocksPrs).then((values) => {
-    res.render("home-view", { stockList: values });
-  });
-});
-// ! modified - home-view <--
+router.get("/home-view", isLoggedIn, (req, res) => {
+  const userId = req.session.user._id
+      res.render("home-view", { user: userId })
+    })
 
 router.post("/signup", (req, res) => {
+
   const { username, password } = req.body;
   const usernameNotProvided = !username || username === "";
   const passwordNotProvided = !password || password === "";
@@ -63,17 +49,21 @@ router.post("/signup", (req, res) => {
       // Create the new user
       return User.create({ username: username, password: hashedPassword});
     })
-    .then((createdUser) => {
-      // Redirect to the home `/` page after the successful signup
-      res.redirect("/");
+    .then((createdUser)=>{
+      UserInfo.create({})
     })
-    .catch((err) => {
-      res.render("auth-views/signup-form", {
-        errorMessage: err.message || "Error while trying to sign up",
-      });
+    .then((createdInfo)=>{
+      console.log(createdInfo)
+    })
+    .then(()=>{
+      res.redirect("/");
+      })
+  .catch((err) => {
+    res.render("auth-views/signup-form", {
+      errorMessage: err.message || "Error while trying to sign up",
     });
 });
-
+});
 // POST /login
 router.post("/home-view", (req, res) => {
   // Get the username and password from the req.body
@@ -110,11 +100,12 @@ router.post("/home-view", (req, res) => {
         res.redirect("home-view");
       }
     })
-    .catch((err) => {
-      res.render("/", {
-        errorMessage: err.message || "Provide username and password.",
-      });
+  .catch((err) => {
+    res.render("/", {
+      errorMessage: err.message || "Provide username and password.",
     });
+  });
+
 });
 
 router.get("/logout", isLoggedIn, (req, res) => {
