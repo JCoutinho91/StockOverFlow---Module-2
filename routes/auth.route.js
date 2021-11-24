@@ -4,7 +4,7 @@ const UserInfo = require("./../models/UserInfo.model");
 const bcrypt = require("bcryptjs");
 const zxcvbn = require("zxcvbn");
 const axios = require("axios");
-const isLoggedIn = require("./../middleware/isLoggedIn")
+const isLoggedIn = require("./../middleware/isLoggedIn");
 require("dotenv").config();
 //Importing Needed Packages
 
@@ -14,15 +14,18 @@ router.get("/signup", (req, res) => {
   res.render("auth-views/signup-form");
 });
 
-
 // ! modified - home-view -->
 router.get("/home-view", isLoggedIn, (req, res) => {
-  const userId = req.session.user._id
-      res.render("home-view", { user: userId })
-    })
+  let userIsLoggedIn = false;
+  if (req.session.user) {
+    userIsLoggedIn = true;
+  }
+  const userId = req.session.user._id;
+
+  res.render("home-view", { user: userId, userIsLoggedIn: userIsLoggedIn });
+});
 
 router.post("/signup", (req, res) => {
-
   const { username, password } = req.body;
   const usernameNotProvided = !username || username === "";
   const passwordNotProvided = !password || password === "";
@@ -47,22 +50,22 @@ router.post("/signup", (req, res) => {
     })
     .then((hashedPassword) => {
       // Create the new user
-      return User.create({ username: username, password: hashedPassword});
+      return User.create({ username: username, password: hashedPassword });
     })
-    .then((createdUser)=>{
-      UserInfo.create({})
+    .then((createdUser) => {
+      UserInfo.create({});
     })
-    .then((createdInfo)=>{
-      console.log(createdInfo)
+    .then((createdInfo) => {
+      console.log(createdInfo);
     })
-    .then(()=>{
+    .then(() => {
       res.redirect("/");
-      })
-  .catch((err) => {
-    res.render("auth-views/signup-form", {
-      errorMessage: err.message || "Error while trying to sign up",
+    })
+    .catch((err) => {
+      res.render("auth-views/signup-form", {
+        errorMessage: err.message || "Error while trying to sign up",
+      });
     });
-});
 });
 // POST /login
 router.post("/home-view", (req, res) => {
@@ -100,16 +103,14 @@ router.post("/home-view", (req, res) => {
         res.redirect("home-view");
       }
     })
-  .catch((err) => {
-    res.render("/", {
-      errorMessage: err.message || "Provide username and password.",
+    .catch((err) => {
+      res.render("/", {
+        errorMessage: err.message || "Provide username and password.",
+      });
     });
-  });
-
 });
 
 router.get("/logout", isLoggedIn, (req, res) => {
-
   req.session.destroy((err) => {
     if (err) {
       return res.render("error");

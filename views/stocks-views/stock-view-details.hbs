@@ -1,52 +1,89 @@
-  <h1>StockOverFlow</h1>
+<h1>StockOverFlow</h1>
 
 <div class="stock-detail">
-  <div>
-    <article>
-      <div>
-        <h2> {{data.stockInfo.data.companyInformation.shortName}}</h2>
-        <p>Ticker:</b> {{data.stockInfo.data.ticker}}</p>
-      </div>
-      <p><b>Current Price:</b>
-        {{data.stockInfo.priceData.currentPrice}}</p>
-      <p>
-        <img
-          src="{{data.stockInfo.data.companyInformation.logoURL}}"
-          alt="logocompany"
-          srcset=""
-        />
-      <p><b>Brief of the Company:</b>
-        <br />
-        {{data.stockInfo.data.companyInformation.companyDescription}}</p>
-      <p><b>
-        Company location:</b>
-        {{data.stockInfo.data.companyInformation.companyLocation}}
-      </p>
-      <p><b>Market Capitalization:</b>
-        {{data.stockInfo.data.companyInformation.marketCap}}</p>
-      <p><b>Balance Sheet:</b> {{data.stockInfo.data.fundamentals.balanceSheet}}</p>
-      <p><b>Income Statement:</b>
-        {{data.stockInfo.data.fundamentals.incomeStatement}}</p>
-      <p><b>
-        Number of institutional Owners:</b>
-        {{data.stockInfo.data.fundamentals.totalInstitutionalOwners}}
-      </p>
+  <div class="stock-info-news row">
+    <div class="stock-detail-info col-md-8">
+      <article>
+          <i class="fas fa-thumbs-up"></i>
+        <div>
+          <h2> {{data.stockInfo.data.companyInformation.shortName}}</h2>
+          <p>Ticker:</b> {{data.stockInfo.data.ticker}}</p>
+        </div>
+        <p><b>Current Price:</b>
+          {{data.stockInfo.data.priceData.currentPrice}}</p>
+        <p>
+          <img
+            src="{{data.stockInfo.data.companyInformation.logoURL}}"
+            alt="logocompany"
+            srcset=""
+          />
+        <p><b>Brief of the Company:</b>
+          <br />
+          {{data.stockInfo.data.companyInformation.companyDescription}}</p>
+        <p><b>
+          Company location:</b>
+          {{data.stockInfo.data.companyInformation.companyLocation}}
+        </p>
+        <p><b>Market Capitalization:</b>
+          {{data.stockInfo.data.companyInformation.marketCap}}</p>
+        <p><b>Balance Sheet:</b> 
+        
+        {{#each data.stockInfo.data.fundamentals.shareholderBreakdown}}
 
-    </article>
+        {{this.}}</p>
+        {{/each}}
+        
+        
+        
+        
+        <p><b>Income Statement:</b>
+          {{data.stockInfo.data.fundamentals.incomeStatement}}</p>
+        <p><b>
+          Number of institutional Owners:</b>
+          {{data.stockInfo.data.fundamentals.totalInstitutionalOwners}}
+        </p>
+
+      </article>
+    </div>
+
+    <div class="stock-detail-news col-md-4 ms-auto">
+        <ul class="list-group">
+          <li>
+            <h3 class="list-group-item active" aria-current="true">
+            Latest news from {{data.stockInfo.data.companyInformation.shortName}}
+            </h3>
+          </li>
+          <li class="list-group-item list-group-item-action">
+            <a href="{{data.stockInfo.data.companyInformation.newsData.0.newsLink}}">
+            {{data.stockInfo.data.companyInformation.newsData.0.newsArticle}}
+            </a>
+          </li>
+          <li class="list-group-item list-group-item-action">
+            <a href="{{data.stockInfo.data.companyInformation.newsData.1.newsLink}}">
+            {{data.stockInfo.data.companyInformation.newsData.1.newsArticle}}
+            </a>
+          </li>
+          <li class="list-group-item list-group-item-action">
+            <a href="{{data.stockInfo.data.companyInformation.newsData.2.newsLink}}">
+            {{data.stockInfo.data.companyInformation.newsData.2.newsArticle}}
+            </a>
+          </li>
+        </ul>
+        </div>
+    </div>
   </div>
-
   <hr />
-  <p><b>Tell us what you think about this company</b></p>
-  <form
-    action="/stock-view-details/{{data.stockInfo.data.ticker}}/create"
-    method="POST"
-  >
+
   <div class="mb-2 comment-stock-detail">
-    <label for="exampleFormControlTextarea1" class="form-label">Comment:</label>
+    <p><b>Tell us what you think about this company</b></p>
+    <form
+      action="/stock-view-details/{{data.stockInfo.data.ticker}}/create"
+      method="POST"
+    >
     <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" type="text" name="comment" placeholder="Comment..."/></textarea>
     <button class="btn btn-outline-secondary" type="submit">Post</button>
-  </div>
   </form>
+
   <hr />
   <hr />
 
@@ -59,4 +96,5 @@
       <hr />
     {{/if}}
   {{/each}}
+  </div>
 </div>

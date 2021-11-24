@@ -16,6 +16,7 @@
   </head>
 
   <body>
+    {{#if userIsLoggedIn}}
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">STOF (logo)</a>
@@ -54,7 +55,8 @@
         </div>
       </div>
     </nav>
-
+    {{else}}
+{{/if}}
 
     {{{body}}}
 

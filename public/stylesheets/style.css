@@ -5,7 +5,7 @@
 
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: lightgrey;
+  /* background-color: lightgrey; */
 }
 
 a {
@@ -102,7 +102,11 @@ hr {
   margin: 1rem auto;
 }
 
-.stock-detail textarea {
+.comment-stock-detail {
+  margin: 0 10%;
+}
+
+.comment-stock-detail textarea {
   margin: 1rem 0;
   max-height: 200px;
 }
