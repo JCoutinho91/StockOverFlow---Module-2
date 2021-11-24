@@ -60,29 +60,3 @@
     {{/if}}
   {{/each}}
 </div>
-
-
-
-{{! * original one }}
-{{! /*  }}
-{{!-- <label>Username:</label>
-  <input type="text" name="name" />
-  <br />
-  <label>Comment:</label>
-  <input type="text" name="comment" />
-  <button type="submit">Post</button>
-</form>
-<hr />
-
-
-{{#each data.foundComment}}
-  <p>Name: {{this.name}}</p>
-  <p>Comment: {{this.comment}}</p>
-  <p>creator: {{this.creator.username}}</p>
-  {{#if this.isCreator}}
-    <a href="/comment-edit/editstock/{{this._id}}">
-      <button type="submit">Edit</button></a>
-    {{!--<a href="/comment-edit/delete/{{this._id}}"><button type="submit">Delete</button></a>--}}
-{{!-- <hr />
-  {{/if}}
-{{/each}} --}}
