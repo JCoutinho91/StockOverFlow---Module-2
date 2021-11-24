@@ -3,6 +3,7 @@
 const router = require("express").Router();
 const axios = require("axios");
 const UserInfo = require("./../models/UserInfo.model");
+const fileUploader = require('../config/cloudinary.config');
 require("dotenv").config();
 //const isLoggedIn = require("isLoggedIn")
 
@@ -34,7 +35,7 @@ router.get("/Profite-edit/:infoID", (req, res) => {
   res.render("profile-edit", { user: Info });
 });
 
-router.post("/profite-edit/:infoID", (req, res) => {
+router.post("/profite-edit/:infoID", fileUploader.single('profile-cover-image'), (req, res) => {
   const Info = req.params.infoID;
   console.log("userinfo ._ID", Info);
   const { firstname, lastname, age, aboutme } = req.body;
@@ -43,6 +44,7 @@ router.post("/profite-edit/:infoID", (req, res) => {
     lastname: lastname,
     age: age,
     aboutme: aboutme,
+    imageUrl: req.file.path 
   }).then((updatedUserInfo) => {
     console.log(updatedUserInfo);
     res.redirect(`./../home-view`);

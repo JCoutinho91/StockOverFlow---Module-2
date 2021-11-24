@@ -7,7 +7,8 @@ const userInfoSchema = new Schema(
     age: {type: Number},
     aboutme: {type:String},
     favoritestocks: [{type:String}],
-    user: { type:String }
+    user: { type:String },
+    imageUrl: {type: String}
   },
   {
     // this second object adds extra properties: `createdAt` and `updatedAt`
