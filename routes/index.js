@@ -10,7 +10,7 @@ router.get("/", (req, res, next) => {
   res.render("index");
 });
 
-router.get("/search", (req, res) => {
+router.get("/search/:stockId", (req, res) => {
   const stockFind = req.query.stockFind;
    axios.get(
     `https://www.styvio.com/apiV2/${stockFind}/${process.env.API_KEY}`
