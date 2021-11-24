@@ -269,37 +269,38 @@ router.post("/stock-view-details/:stockID/create", isLoggedIn, (req, res) => {
   res.redirect(`/stock-view-details/${stockId}`);
 });
 
-router.get("/comment-edit/editstock/:commentId", isLoggedIn, (req, res) => {
+router.get("/comment-edit/:stockIDD/:commentId", isLoggedIn, (req, res) => {
+  const stockId = req.params.stockIDD
   const userId = req.session.user._id;
   const commentID = req.params.commentId;
   console.log(commentID);
-
   Comment.findById(commentID).then((foundComment) => {
     console.log(foundComment);
     res.render("./stocks-views/comment-edit-view", { foundComment });
   });
 });
 
-router.post("/comment-edit/editstock/:commentId", (req, res) => {
+router.post("/comment-edit/:stockIDD/:commentId", (req, res) => {
+  const stockId = req.params.stockIDD
   const commentID = req.params.commentId;
   const { name, comment, creator } = req.body;
 
   Comment.findByIdAndUpdate(commentID, { name, comment }, { new: true })
     .then((updatedComment) => {
-      //here we should redirect to the stock details page
-      // console.log(updatedComment)
+      res.redirect(`/stock-view-details/${stockId}`);
     })
     .catch((err) => console.log(err));
 });
 
-router.post("/comment-edit/delete/:commentId", (req, res) => {
+router.post("/comment-edit/delete/:stockIDD/:commentId", (req, res) => {
   console.log("in post");
+  const stockId = req.params.stockIDD
   const commentID = req.params.commentId;
   Comment.findByIdAndRemove(commentID)
     .then((status) => {
       console.log("deleted comment", status);
       //here we should redirect to the stock details page
-      res.redirect("./../../home-view");
+      res.redirect(`/stock-view-details/${stockId}`);
     })
     .catch((err) => console.log(err));
 });
