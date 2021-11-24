@@ -286,6 +286,7 @@ router.post("/comment-edit/editstock/:commentId", (req, res) => {
 
   Comment.findByIdAndUpdate(commentID, { name, comment }, { new: true })
     .then((updatedComment) => {
+      //here we should redirect to the stock details page
       // console.log(updatedComment)
     })
     .catch((err) => console.log(err));
@@ -297,6 +298,7 @@ router.post("/comment-edit/delete/:commentId", (req, res) => {
   Comment.findByIdAndRemove(commentID)
     .then((status) => {
       console.log("deleted comment", status);
+      //here we should redirect to the stock details page
       res.redirect("./../../home-view");
     })
     .catch((err) => console.log(err));

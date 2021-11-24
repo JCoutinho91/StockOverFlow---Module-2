@@ -1,7 +1,10 @@
+<h1>StockOverFlow</h1>
+
 <h2>Edit your Comment</h2>
-<hr>
 
 <form action="/comment-edit/editstock/{{foundComment._id}}" method="POST">
+
+  {{! original form }}
   <label>Name:</label>
   <input type="text" name="name" value="{{foundComment.name}}" />
 
@@ -9,8 +12,16 @@
   <input type="text" name="comment" value="{{foundComment.comment}}" />
 
   <button type="submit">Save changes</button>
+
+  {{!-- 
+  <div class="mb-2 edit-comment">
+    <label for="exampleFormControlTextarea1" class="form-label">Edit your comment:</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" type="text" name="comment" value="{{foundComment.comment}}"/></textarea>
+    <button class="btn btn-outline-secondary" type="submit">Post</button>
+  </div> --}}
+
 </form>
-<hr />
+
 <form action="/comment-edit/delete/{{foundComment._id}}" method="POST">
   <button type="submit">Delete</button>
 </form>

@@ -105,3 +105,12 @@ hr {
 .stock-detail textarea {
   margin-bottom: 1rem;
 }
+
+.comment-stock-detail {
+  width: 50%;
+}
+
+/* * edit-comment-view */
+.edit-comment {
+  width: 50%;
+}
