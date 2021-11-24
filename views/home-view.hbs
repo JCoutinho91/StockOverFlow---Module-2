@@ -1,45 +1,46 @@
 <div class="home-view">
   <h1>StockOverFlow</h1>
 
-<button><a href="/Profile/{{user}}">Profile</a></button>
+  {{!-- <button><a href="/Profile/{{user}}">Profile</a></button> --}}
 
   <h2>Stock's by businnes cate</h2>
-  <div class="home-category container">
-    <div class="row align-items-center">
-      <ul class="col">
-        <li><a href="/techcategory">Tech Industry</a></li>
-        <li><a href="/healthcategory">Health-Care</a></li>
-        <li><a href="/industrialcategory">Industrial</a></li>
-      </ul>
-      <ul class="col">
-        <li><a href="/financialcategory">Financial</a></li>
-        <li><a href="/energycategory">Energy</a></li>
-        <li><a href="/communicationcategory">Communication</a></li>
-      </ul>
-      <ul class="col">
-        <li><a href="/consumerscategory">Consumer Staples</a></li>
-        <li><a href="/realestatecategory">Real Estate</a></li>
-        <li><a href="/volumecategory">Biggest volume S&amp;P500</a></li>
-      </ul>
-    </div>
+  <div class="home-category container d-flex justify-content-between">
+    <ul class="col list-group">
+      <li><a class="list-group-item" href="/techcategory">Tech Industry</a></li>
+      <li><a class="list-group-item" href="/healthcategory">Health-Care</a></li>
+      <li><a
+          class="list-group-item"
+          href="/industrialcategory"
+        >Industrial</a></li>
+    </ul>
+    <ul class="col">
+      <li><a
+          class="list-group-item"
+          href="/financialcategory"
+        >Financial</a></li>
+      <li><a class="list-group-item" href="/energycategory">Energy</a></li>
+      <li><a
+          class="list-group-item"
+          href="/communicationcategory"
+        >Communication</a></li>
+    </ul>
+    <ul class="col">
+      <li><a class="list-group-item" href="/consumerscategory">Consumer Staples</a></li>
+      <li><a class="list-group-item" href="/realestatecategory">Real Estate</a></li>
+      <li><a class="list-group-item" href="/volumecategory">Biggest volume
+          S&amp;P500</a></li>
+    </ul>
   </div>
+
   <hr />
 
   <div class="home-category container">
     <div class="row align-items-center">
-      <ul class="col">
-        <h2> The last new's from:</h2>
-          <li><a href="/newsfeed">NEWSFEED</a>
-          </li>
-      </ul>
-      <ul class="col">
-        <h2>Check a random Stock's</h2>
-        {{#each stockList}}
-          <li><a href="/stock-view-details/{{this.data.ticker}}">
-              {{this.data.companyInformation.shortName}}</a>
-          </li>
-        {{/each}}
-      </ul>
+      <h2 class="col">
+        <a href="/newsfeed">Latest new's from the market</a>
+      </h2>
+      <h2 class="col">Check a random Stock's</h2>
+
     </div>
 
   </div>
