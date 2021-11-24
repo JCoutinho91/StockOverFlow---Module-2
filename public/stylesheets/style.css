@@ -112,6 +112,34 @@ hr {
 }
 
 /* * edit-comment-view */
-.edit-comment {
+.comment-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.comment-edit-view {
   width: 50%;
+}
+
+.comment-edit-view textarea {
+  margin: 0.5rem 0;
+  max-height: 200px;
+}
+
+.comment-edit-view button {
+  width: 100%;
+  margin: 0.5rem 0;
+}
+
+.edit-delete-btn {
+  display: flex;
+}
+
+.edit-delete-btn button {
+  width: 25%;
+}
+.edit-delete-btn form {
+  width: 100%;
 }
