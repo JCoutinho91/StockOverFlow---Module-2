@@ -1,7 +1,16 @@
 <h1>Latest new's from the market</h1>
 
-<h2>Latest from XXXX stock'market</h2>
-{{! * HERE WE SHOULD DISPLAY THE STOCK'S FROM XXX MARKET }}
+{{#each newsData}}
+
+<p><h2><b>{{this.title}}</b></h2></p>
+<hr>
+<p><img src="{{this.urlToImage}}" width=400px alt="newsimg" srcset=""></p>
+<p><h4>{{this.description}}</h4></p>
+<a href="<p>{{this.url}}</p>">Check More Here</a>
+<hr>
+
+{{/each}}
+
 
 <a href="/news-view-detail/">
         {{! Im having issues to display the news array proprieties }}
