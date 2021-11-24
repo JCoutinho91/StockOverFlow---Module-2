@@ -9,11 +9,27 @@ body {
 }
 
 a {
+  text-decoration: none;
+}
+
+a:hover {
   color: #00b7ff;
 }
 
 h1 {
+  padding: 5% 0;
   color: 15px;
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ! ERASER OR EDIT */
+
+hr {
+  color: black;
 }
 
 /** index.hbs */
@@ -60,4 +76,32 @@ h1 {
 
 .signup-form button {
   width: 100%;
+}
+
+/** home-view  */
+
+.home-view {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.news-stock {
+  background-color: yellow;
+}
+
+/* * stock-detail-view */
+
+.stock-detail {
+  padding: 0 10%;
+}
+
+.stock-detail p {
+  text-align: justify;
+  margin: 1rem auto;
+}
+
+.stock-detail textarea {
+  margin-bottom: 1rem;
 }

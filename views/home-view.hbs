@@ -1,48 +1,48 @@
-<h1>Company List</h1>
+<div class="home-view">
+  <h1>StockOverFlow</h1>
 
-<h2>Latest new's from the market:</h2>
-{{#each stockList}}
-  <ul class="home-stocks">
-    <li><a href="/news-view-detail/{{this.data.ticker}}">
-        {{this.data.companyInformation.shortName}}</a>
-    </li>
-  </ul>
-{{/each}}
+  <h2>Stock's by businnes cate</h2>
+  <div class="home-category container">
+    <div class="row align-items-center">
+      <ul class="col">
+        <li><a href="/techcategory">Tech Industry</a></li>
+        <li><a href="/healthcategory">Health-Care</a></li>
+        <li><a href="/industrialcategory">Industrial</a></li>
+      </ul>
+      <ul class="col">
+        <li><a href="/bankcategory">Financial</a></li>
+        <li><a href="/energycategory">Energy</a></li>
+        <li><a href="/communicationcategory">Communication</a></li>
+      </ul>
+      <ul class="col">
+        <li><a href="/consumerscategory">Consumer Staples</a></li>
+        <li><a href="/realestatecategory">Real Estate</a></li>
+        <li><a href="/volumecategory">Biggest volume S&amp;P500</a></li>
+      </ul>
+    </div>
+  </div>
+  <hr />
 
-<ul>
-  <li>
-    <a href="/newsfeed">Check More new's over here</a>
-  </li>
-</ul>
+  <div class="home-category container">
+    <div class="row align-items-center">
+      <ul class="col">
+        <h2> The last new's from:</h2>
+        {{#each stockList}}
+          <li><a href="/news-view-detail/{{this.data.ticker}}">
+              {{this.data.companyInformation.shortName}}</a>
+          </li>
+        {{/each}}
+      </ul>
+      <ul class="col">
+        <h2>Check a random Stock's</h2>
+        {{#each stockList}}
+          <li><a href="/stock-view-details/{{this.data.ticker}}">
+              {{this.data.companyInformation.shortName}}</a>
+          </li>
+        {{/each}}
+      </ul>
+    </div>
 
-<h2>Check the stocks from: </h2>
-{{#each stockList}}
-  <ul class="home-stocks">
-    <li><a href="/stock-view-details/{{this.data.ticker}}">
-        {{this.data.companyInformation.shortName}}</a>
-    </li>
-  </ul>
-{{/each}}
-<hr>
-<ul>
-  <li>
-    <a href="/techcategory">Tech Industry</a>
-    <hr>
-    <a href="/healthcategory">Health-Care</a>
-   <hr>
-    <a href="/industrialcategory">Industrial</a>
-   <hr>
-    <a href="/bankcategory">Financial</a>
-<hr>
-    <a href="/energycategory">Energy</a>
-<hr>
-    <a href="/communicationcategory">Communication</a>
-<hr>
-    <a href="/consumerscategory">Consumer Staples</a>
-<hr>
-    <a href="/realestatecategory">Real Estate</a>
-<hr>
-    <a href="/volumecategory">Biggest volume S&P500</a>
-<hr>
-  </li>
-</ul>
+  </div>
+
+</div>

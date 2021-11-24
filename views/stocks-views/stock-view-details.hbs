@@ -1,58 +1,88 @@
-<h1>Stock Details</h1>
+  <h1>StockOverFlow</h1>
 
-<div class="row">
-    <a href="/home-view">Home</a>
-    <a href="/logout">Logout</a>
-        <div class="stock-details">
-        <article class="stockDetail"> 
+<div class="stock-detail">
+  <div>
+    <article>
+      <div>
         <h2> {{data.stockInfo.data.companyInformation.shortName}}</h2>
-        <p>ticker: {{data.stockInfo.data.ticker}}</p>
-        <p>Current Price:
+        <p>Ticker:</b> {{data.stockInfo.data.ticker}}</p>
+      </div>
+      <p><b>Current Price:</b>
         {{data.stockInfo.priceData.currentPrice}}</p>
-        <p>
+      <p>
         <img
-            src="{{data.stockInfo.data.companyInformation.logoURL}}"
-            alt="logocompany"
-            srcset=""
-        /></p>
-        <p>Brief of the Company:
+          src="{{data.stockInfo.data.companyInformation.logoURL}}"
+          alt="logocompany"
+          srcset=""
+        />
+      <p><b>Brief of the Company:</b>
+        <br />
         {{data.stockInfo.data.companyInformation.companyDescription}}</p>
-        <p>
-        Address:
+      <p><b>
+        Company location:</b>
         {{data.stockInfo.data.companyInformation.companyLocation}}
-        {{data.stockInfo.data.companyInformation.companyAdress}}
-        </p>
-        <p>Market Capitalization: {{data.stockInfo.data.companyInformation.marketCap}}</p>
-        <p>Balance Sheet: {{data.stockInfo.data.fundamentals.balanceSheet}}</p>
-        <p>Income Statement: {{data.stockInfo.data.fundamentals.incomeStatement}}</p>
-        <p>
-        Institutional Owners:
+      </p>
+      <p><b>Market Capitalization:</b>
+        {{data.stockInfo.data.companyInformation.marketCap}}</p>
+      <p><b>Balance Sheet:</b> {{data.stockInfo.data.fundamentals.balanceSheet}}</p>
+      <p><b>Income Statement:</b>
+        {{data.stockInfo.data.fundamentals.incomeStatement}}</p>
+      <p><b>
+        Number of institutional Owners:</b>
         {{data.stockInfo.data.fundamentals.totalInstitutionalOwners}}
-        </p>
+      </p>
+
+    </article>
+  </div>
+
+  <hr />
+  <p><b>Tell us what you think about this company</b></p>
+  <form
+    action="/stock-view-details/{{data.stockInfo.data.ticker}}/create"
+    method="POST"
+  >
+  <div class="mb-2">
+    <label for="exampleFormControlTextarea1" class="form-label">Comment:</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" type="text" name="comment" placeholder="Comment..."/></textarea>
+    <button class="btn btn-outline-secondary" type="submit">Post</button>
+  </div>
+  </form>
+  <hr />
+  <hr />
+
+  {{#each data.foundComment}}
+    <p><b>Username:</b> {{this.creator.username}}</p>
+    <p><b>Comment:</b> {{this.comment}}</p>
+    {{#if this.isCreator}}
+      <a href="/comment-edit/editstock/{{this._id}}">
+        <button class="btn btn-outline-secondary" type="submit">Edit</button></a>
+      <hr />
+    {{/if}}
+  {{/each}}
 </div>
-  </article>
-    <hr>
-<hr>
-<p><b>Make a comment</b></p>
-<form action="/stock-view-details/{{data.stockInfo.data.ticker}}/create" method="POST">
-  <label>Username:</label>
-  <input type="text" name="name">
-  <br>
+
+
+
+{{! * original one }}
+{{! /*  }}
+{{!-- <label>Username:</label>
+  <input type="text" name="name" />
+  <br />
   <label>Comment:</label>
-  <input type="text" name="comment">
+  <input type="text" name="comment" />
   <button type="submit">Post</button>
 </form>
-<hr>
+<hr />
+
 
 {{#each data.foundComment}}
-<p>Name: {{this.name}}</p>
-<p>Comment: {{this.comment}}</p>
-<p>creator: {{this.creator.username}}</p>
-{{#if this.isCreator}}
-<a href="/comment-edit/editstock/{{this._id}}"> <button type="submit">Edit</button></a>
-{{!--<a href="/comment-edit/delete/{{this._id}}"><button type="submit">Delete</button></a>--}}
-{{/if}}
-{{/each}}
-<hr>
-
-</div>
+  <p>Name: {{this.name}}</p>
+  <p>Comment: {{this.comment}}</p>
+  <p>creator: {{this.creator.username}}</p>
+  {{#if this.isCreator}}
+    <a href="/comment-edit/editstock/{{this._id}}">
+      <button type="submit">Edit</button></a>
+    {{!--<a href="/comment-edit/delete/{{this._id}}"><button type="submit">Delete</button></a>--}}
+{{!-- <hr />
+  {{/if}}
+{{/each}} --}}
