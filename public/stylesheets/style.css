@@ -103,7 +103,8 @@ hr {
 }
 
 .stock-detail textarea {
-  margin-bottom: 1rem;
+  margin: 1rem 0;
+  max-height: 200px;
 }
 
 .comment-stock-detail {
