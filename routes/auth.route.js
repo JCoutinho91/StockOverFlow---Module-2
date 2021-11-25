@@ -15,8 +15,8 @@ router.get("/signup", (req, res) => {
   if (req.session.user) {
     userIsLoggedIn = false;
   }
-  
-  res.render("auth-views/signup-form",{userIsLoggedIn: userIsLoggedIn});
+
+  res.render("auth-views/signup-form", { userIsLoggedIn: userIsLoggedIn });
 });
 
 router.get("/home-view", isLoggedIn, (req, res) => {
@@ -36,8 +36,7 @@ router.post("/signup", (req, res) => {
   if (usernameNotProvided || passwordNotProvided) {
     res.render("auth-views/signup-form", {
       errorMessage: "Provide username and password.",
-      userIsLoggedIn: userIsLoggedIn
-
+      userIsLoggedIn: userIsLoggedIn,
     });
     return;
   }
@@ -45,9 +44,8 @@ router.post("/signup", (req, res) => {
   const regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
   if (!regex.test(password)) {
     res.status(400).render("auth-views/signup-form", {
-      errorMessage:
-        "Weak Password.",
-        userIsLoggedIn: userIsLoggedIn
+      errorMessage: "Weak Password...",
+      userIsLoggedIn: userIsLoggedIn,
     });
 
     return;
@@ -86,6 +84,7 @@ router.post("/signup", (req, res) => {
       });
     });
 });
+
 router.get("/logout", isLoggedIn, (req, res) => {
   req.session.destroy((err) => {
     if (err) {
