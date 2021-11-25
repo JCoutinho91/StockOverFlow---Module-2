@@ -75,7 +75,8 @@ router.post("/signup", (req, res) => {
     });
 });
 
-router.post("/login", (req, res) => {
+router.post("/",  (req, res) => {
+
   const { username, password } = req.body;
   
   const usernameNotProvided = !username || username === "";
@@ -83,9 +84,9 @@ router.post("/login", (req, res) => {
 
   if (usernameNotProvided || passwordNotProvided) {
     res.render("index", {
-      errorMessage: "Provide username and password.",
-    });
-    return;
+      errorMessage: "Provide username and password."},
+    );
+    return
   }
 
   let user;
