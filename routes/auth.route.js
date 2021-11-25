@@ -46,7 +46,7 @@ router.post("/signup", (req, res) => {
   if (!regex.test(password)) {
     res.status(400).render("auth-views/signup-form", {
       errorMessage:
-        "Weak Password...",
+        "Weak Password.",
         userIsLoggedIn: userIsLoggedIn
     });
 
