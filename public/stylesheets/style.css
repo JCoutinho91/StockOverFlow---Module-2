@@ -87,6 +87,11 @@ hr {
   flex-direction: column;
 }
 
+.home-img img {
+  max-width: 150px;
+  max-height: 100px;
+}
+
 .news-stock {
   background-color: yellow;
 }
@@ -146,4 +151,15 @@ hr {
 }
 .edit-delete-btn form {
   width: 100%;
+}
+
+/* * profile-view */
+
+.profile-view h2 {
+  text-align: center;
+}
+
+.profile-view img {
+  border-radius: 100%;
+  padding: 10%;
 }

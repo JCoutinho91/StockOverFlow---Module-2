@@ -1,15 +1,29 @@
-<h1>MY PROFILE</h1>
+<div class="profile-view">
+  <h1>StockOverFlow</h1>
 
-<p> <img src="{{userprofile.userInfo.imageUrl}}" alt="profilepicture" srcset=""> </p>
+  <h2>My profile</h2>
+  <div class="d-flex justify-content-center">
 
-<p> FIRST NAME: {{userprofile.userInfo.firstname}} </p>
+    <div class="card" style="width: 18rem;">
+      <img
+        src="/images/default-profile-img.jpg"
+        class="card-img-top"
+        alt="profile img"
+      />
+      <div class="card-body">
+        <p class="card-text">First Name: {{userprofile.userInfo.firstname}}</p>
+        <p class="card-text">Age: {{userprofile.userInfo.age}}</p>
+        <p class="card-text">About me: {{userprofile.userInfo.aboutme}}</p>
+        <p class="card-text"></p>
+        <div class="d-flex justify-content-between">
+          <a
+            href="/Profite-edit/{{userprofile._id}}"
+            class="btn btn-primary"
+          >Edit Info</a>
+          <a class="btn btn-primary" href="javascript:history.back()">Cancel</a>
+        </div>
 
-<p>LAST NAME:  {{userprofile.userInfo.lastname}}</p>
-
-<p> AGE:  {{userprofile.userInfo.age}}</p>
-
-<p> ABOUT ME: {{userprofile.userInfo.aboutme}}</p>
-
-<p>FAVORITE STOCKS:</p>
-
-<Button> <a href="/Profite-edit/{{userprofile._id}}">Edit Info</a></Button>
+      </div>
+    </div>
+  </div>
+</div>
