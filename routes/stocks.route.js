@@ -20,6 +20,8 @@ router.get("/techcategory", isLoggedIn, (req, res) => {
     "GME",
     "NFLX",
     "PYPL",
+    "HPE",
+    "CRM",
   ];
   const stocksPrs = arrayStocks.map((ticker) => {
     return axios.get(
@@ -40,9 +42,11 @@ router.get("/healthcategory", isLoggedIn, (req, res) => {
     "MRNA",
     "BSX",
     "ABBV",
-    "JNJ",
+    "HUM",
     "GILD",
     "VTRS",
+    "PKI",
+    "DXCM",
   ];
   const stocksPrs = arrayStocks.map((ticker) => {
     return axios.get(
@@ -67,6 +71,8 @@ router.get("/industrialcategory", isLoggedIn, (req, res) => {
     "GE",
     "CARR",
     "HON",
+    "FDX",
+    "ALK"
   ];
   const stocksPrs = arrayStocks.map((ticker) => {
     return axios.get(
@@ -91,6 +97,8 @@ router.get("/financialcategory", isLoggedIn, (req, res) => {
     "KEY",
     "AXP",
     "USB",
+    "PNC",
+    "BEN",
   ];
   const stocksPrs = arrayStocks.map((ticker) => {
     return axios.get(
@@ -115,6 +123,8 @@ router.get("/energycategory", isLoggedIn, (req, res) => {
     "COP",
     "SLB",
     "KMI",
+    "HES",
+    "PSX",
   ];
   const stocksPrs = arrayStocks.map((ticker) => {
     return axios.get(
@@ -131,7 +141,7 @@ router.get("/communicationcategory", isLoggedIn, (req, res) => {
   const arrayStocks = [
     "T",
     "TWTR",
-    "FB",
+    "NWSA",
     "ATVI",
     "VIAC",
     "DIS",
@@ -139,6 +149,8 @@ router.get("/communicationcategory", isLoggedIn, (req, res) => {
     "LUMN",
     "EA",
     "TMUS",
+    "FOX",
+    "OMC",
   ];
   const stocksPrs = arrayStocks.map((ticker) => {
     return axios.get(
@@ -156,7 +168,7 @@ router.get("/consumerscategory", isLoggedIn, (req, res) => {
   const arrayStocks = [
     "KO",
     "WMT",
-    "KHC",
+    "CL",
     "PG",
     "KR",
     "WBA",
@@ -164,6 +176,8 @@ router.get("/consumerscategory", isLoggedIn, (req, res) => {
     "MO",
     "PM",
     "PEP",
+    "GIS",
+    "K",
   ];
   const stocksPrs = arrayStocks.map((ticker) => {
     return axios.get(
@@ -189,6 +203,8 @@ router.get("/realestatecategory", isLoggedIn, (req, res) => {
     "IRM",
     "VTR",
     "DLR",
+    "ESS",
+    "EXR",
   ];
   const stocksPrs = arrayStocks.map((ticker) => {
     return axios.get(
@@ -204,16 +220,18 @@ router.get("/realestatecategory", isLoggedIn, (req, res) => {
 
 router.get("/volumecategory", isLoggedIn, (req, res) => {
   const arrayStocks = [
-    "F",
-    "AAPL",
-    "AMD",
-    "NVDA",
-    "BAC",
+    "INTC",
+    "LGVN",
     "MU",
-    "T",
-    "AAL",
-    "MSFT",
-    "TSLA",
+    "F",
+    "OCUP",
+    "AMD",
+    "PLTR",
+    "GPS",
+    "JWN",
+    "NVDA",
+    "PROG",
+    "BAC"
   ];
   const stocksPrs = arrayStocks.map((ticker) => {
     return axios.get(
