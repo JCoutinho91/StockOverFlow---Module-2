@@ -19,13 +19,15 @@ router.get("/", (req, res, next) => {
 router.get("/search", isLoggedIn, (req, res) => {
   console.log("req.query", req.query)
   const stockFind = req.query.stockFind;
-  console.log(stockFind)
+  if(stockFind=== ""){
+    res.redirect("home-view")
+  }else{
    axios.get(
     `https://www.styvio.com/apiV2/${stockFind}/${process.env.API_KEY}`
   )
   .then((foundStock)=>{
     res.redirect(`stock-view-details/${stockFind}`);
-  })
+  })}
 });
 
 router.get("/Profile/:userID", isLoggedIn,  (req, res) => {
@@ -47,6 +49,12 @@ router.get("/Profite-edit/:infoID", isLoggedIn, (req, res) => {
     res.render(`profile-edit`, { user: foundUser });
   });
 });
+
+pictureFix = () =>{
+  if(req.file.path === undefined){
+    return url
+  }else{req.file.path}
+}
 
 router.post("/profite-edit/:infoID", fileUploader.single("profile-cover-image"), (req, res) => {
   const Info = req.params.infoID;
