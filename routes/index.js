@@ -7,7 +7,12 @@ require("dotenv").config();
 //const isLoggedIn = require("isLoggedIn")
 
 router.get("/", (req, res, next) => {
-  res.render("index");
+  let userIsLoggedIn = true;
+  if (req.session.user) {
+    userIsLoggedIn = false;
+  }
+
+  res.render("index", {userIsLoggedIn: userIsLoggedIn});
 });
 
 router.get("/search", (req, res) => {

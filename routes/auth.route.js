@@ -15,13 +15,9 @@ router.get("/signup", (req, res) => {
 });
 
 router.get("/home-view", isLoggedIn, (req, res) => {
-  let userIsLoggedIn = false;
-  if (req.session.user) {
-    userIsLoggedIn = true;
-  }
   const userId = req.session.user._id;
 
-  res.render("home-view", { user: userId, userIsLoggedIn: userIsLoggedIn });
+  res.render("home-view", { user: userId });
 });
 
 router.post("/signup", (req, res) => {
@@ -35,7 +31,7 @@ router.post("/signup", (req, res) => {
     return;
   }
 
-   const regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
+  const regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
   if (!regex.test(password)) {
     res.status(400).render("auth-views/signup-form", {
       errorMessage:
@@ -44,7 +40,7 @@ router.post("/signup", (req, res) => {
 
     return;
   }
- let createdUserInfo;
+  let createdUserInfo;
 
   User.findOne({ username: username })
     .then((foundUser) => {
@@ -54,8 +50,8 @@ router.post("/signup", (req, res) => {
       return UserInfo.create({});
       // Generating the salt string
     })
-    .then((userInfo)=>{
-      createdUserInfo = userInfo
+    .then((userInfo) => {
+      createdUserInfo = userInfo;
       return bcrypt.genSalt(saltRounds);
     })
     .then((salt) => {
@@ -63,7 +59,11 @@ router.post("/signup", (req, res) => {
       return bcrypt.hash(password, salt);
     })
     .then((hashedPassword) => {
-      return User.create({ username: username, password: hashedPassword, userInfo: createdUserInfo._id });
+      return User.create({
+        username: username,
+        password: hashedPassword,
+        userInfo: createdUserInfo._id,
+      });
     })
     .then((createdUser) => {
       res.redirect("/");
@@ -118,7 +118,6 @@ router.post("/home-view", (req, res) => {
 });
 
 router.get("/logout", isLoggedIn, (req, res) => {
-
   req.session.destroy((err) => {
     if (err) {
       return res.render("error");
