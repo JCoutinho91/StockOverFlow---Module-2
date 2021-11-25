@@ -1,5 +1,3 @@
-/* ! ERASER OR EDIT */
-
 h1 {
   text-align: center;
   height: 50px;
@@ -16,7 +14,11 @@ hr {
 
 .error-message {
   color: red;
-  font-size: 2em;
+  font-size: 1.8em;
+}
+
+.input-group-text {
+  min-width: 25%;
 }
 /*  STYLE CSS */
 * {
