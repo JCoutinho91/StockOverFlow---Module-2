@@ -286,36 +286,10 @@ router.post("/stock-view-details/:stockID/create", isLoggedIn, (req, res) => {
   res.redirect(`/stock-view-details/${stockId}`);
 });
 
-<<<<<<< HEAD
-router.get("/comment-edit/editstock/:commentId", isLoggedIn, (req,res)=>{
-  const userId = req.session.user._id
-  const commentID = req.params.commentId
-  console.log(commentID)
-
-   Comment.findById(commentID)
-  .then((foundComment)=>{
-    console.log(foundComment)
-    res.render("./stocks-views/comment-edit-view", { foundComment } );
-  })
-})
-  
-=======
-router.get("/comment-edit/:stockIDD/:commentId", isLoggedIn, (req, res) => {
-  const stockId = req.params.stockIDD
-  const userId = req.session.user._id;
-  const commentID = req.params.commentId;
-  console.log(commentID);
-  Comment.findById(commentID).then((foundComment) => {
-    console.log(foundComment);
-    res.render("./stocks-views/comment-edit-view", { foundComment });
-  });
-});
-
 router.post("/comment-edit/:stockIDD/:commentId", (req, res) => {
   const stockId = req.params.stockIDD
   const commentID = req.params.commentId;
   const { name, comment, creator } = req.body;
->>>>>>> develop
 
   Comment.findByIdAndUpdate(commentID, { name, comment }, { new: true })
     .then((updatedComment) => {

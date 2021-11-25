@@ -6,7 +6,6 @@ const fileUploader = require('./../config/cloudinary.config');
 const User = require("./../models/User.model");
 const isLoggedIn = require("./../middleware/isLoggedIn");
 require("dotenv").config();
-//const isLoggedIn = require("isLoggedIn")
 
 router.get("/", (req, res, next) => {
   let userIsLoggedIn = true;
