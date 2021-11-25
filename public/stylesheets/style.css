@@ -98,11 +98,14 @@ ul {
 }
 
 .home-img img {
-  max-width: 250px;
+  max-width: 230px;
   max-height: 180px;
 }
 
-.list-group li {
+.list-group h5 {
+  font-weight: 400;
+  font-size: 2rem;
+  color: black;
 }
 
 /* * stock-detail-view */
