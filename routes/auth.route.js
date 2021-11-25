@@ -81,8 +81,9 @@ router.post("/signup", (req, res) => {
       res.redirect("/");
     })
     .catch((err) => {
-      res.render("/auth-views/signup-form", {
+      res.render("./auth-views/signup-form", {
         errorMessage: err.message || "Error while trying to sign up",
+        userIsLoggedIn: userIsLoggedIn
       });
     });
 });
