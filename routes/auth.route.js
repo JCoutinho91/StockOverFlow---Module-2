@@ -47,6 +47,7 @@ router.post("/signup", (req, res) => {
     res.status(400).render("auth-views/signup-form", {
       errorMessage:
         "Password needs to have at least 8 chars and must contain at least one number, one lowercase and one uppercase letter.",
+        userIsLoggedIn: userIsLoggedIn
     });
 
     return;
