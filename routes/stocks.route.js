@@ -238,8 +238,7 @@ router.get("/stock-view-details/:stockId", isLoggedIn, async (req, res) => {
     const filteredCommentsCopy = [...filteredComments];
 
     const updatedComments = filteredCommentsCopy.map((commentObj) => {
-      return {
-        ...commentObj._doc,
+      return {...commentObj._doc,
         isCreator: userId === String(commentObj.creator._id),
       };
     });

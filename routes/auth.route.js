@@ -14,7 +14,6 @@ router.get("/signup", (req, res) => {
   res.render("auth-views/signup-form");
 });
 
-// ! modified - home-view -->
 router.get("/home-view", isLoggedIn, (req, res) => {
   let userIsLoggedIn = false;
   if (req.session.user) {
@@ -33,6 +32,16 @@ router.post("/signup", (req, res) => {
     res.render("auth-views/signup-form", {
       errorMessage: "Provide username and password.",
     });
+    return;
+  }
+
+   const regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
+  if (!regex.test(password)) {
+    res.status(400).render("auth-views/signup-form", {
+      errorMessage:
+        "Password needs to have at least 8 chars and must contain at least one number, one lowercase and one uppercase letter.",
+    });
+
     return;
   }
  let createdUserInfo;
@@ -60,7 +69,7 @@ router.post("/signup", (req, res) => {
       res.redirect("/");
     })
     .catch((err) => {
-      res.render("auth-views/signup-form", {
+      res.render("/auth-views/signup-form", {
         errorMessage: err.message || "Error while trying to sign up",
       });
     });
@@ -75,7 +84,7 @@ router.post("/home-view", (req, res) => {
   const passwordNotProvided = !password || password === "";
 
   if (usernameNotProvided || passwordNotProvided) {
-    res.render("/", {
+    res.render("index", {
       errorMessage: "Provide username and password.",
     });
     return;
