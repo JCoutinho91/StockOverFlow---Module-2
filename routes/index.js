@@ -95,13 +95,7 @@ router.get("/Profite-edit/:infoID", isLoggedIn, (req, res) => {
     res.render(`profile-edit`, { user: foundUser });
   });
 });
-/*
-pictureFix = () =>{
-  if(req.file.path === undefined){
-    return url
-  }else{req.file.path}
-}
-*/
+
 router.post("/profite-edit/:infoID", fileUploader.single("profile-cover-image"), (req, res) => {
   const Info = req.params.infoID;
   const { firstname, lastname, age, aboutme } = req.body;
