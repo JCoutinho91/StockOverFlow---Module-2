@@ -51,14 +51,13 @@ router.post("/signup", (req, res) => {
     return;
   }
   let createdUserInfo;
-
   User.findOne({ username: username })
     .then((foundUser) => {
+      console.log(foundUser)
       if (foundUser) {
         throw new Error("The username is taken");
       }
       return UserInfo.create({});
-      // Generating the salt string
     })
     .then((userInfo) => {
       createdUserInfo = userInfo;
@@ -79,7 +78,7 @@ router.post("/signup", (req, res) => {
       res.redirect("/");
     })
     .catch((err) => {
-      res.render("/auth-views/signup-form", {
+      res.render("./auth-views/signup-form", {
         errorMessage: err.message || "Error while trying to sign up",
       });
     });
