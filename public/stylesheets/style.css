@@ -1,9 +1,5 @@
 /* ! ERASER OR EDIT */
 
-.dollars:before {
-  content: "$";
-}
-
 h1 {
   text-align: center;
   height: 50px;
@@ -62,11 +58,6 @@ ul {
   align-items: center;
 }
 
-/* .index h1 {
-  text-align: center;
-  margin-bottom: 10%;
-} */
-
 .container-index {
   width: 400px;
 }
@@ -75,7 +66,7 @@ ul {
   width: 100%;
 }
 
-/* signup page */
+/** signup page */
 
 .signup-form {
   color: #fff;
@@ -107,12 +98,11 @@ ul {
 }
 
 .home-img img {
-  max-width: 150px;
-  max-height: 100px;
+  max-width: 250px;
+  max-height: 180px;
 }
 
-.news-stock {
-  background-color: yellow;
+.list-group li {
 }
 
 /* * stock-detail-view */
