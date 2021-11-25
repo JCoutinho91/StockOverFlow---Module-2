@@ -1,8 +1,6 @@
 /* ! ERASER OR EDIT */
 
 h1 {
-  /* padding: 5% 0;
-  color: 15px; */
   text-align: center;
   height: 50px;
 }
@@ -33,6 +31,11 @@ a:hover {
 
 ul {
   list-style: none;
+}
+
+/* * logo style*/
+.logo {
+  margin: 5%;
 }
 
 .logo img {
