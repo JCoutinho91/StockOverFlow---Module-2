@@ -20,7 +20,6 @@ router.get("/home-view", isLoggedIn, (req, res) => {
     userIsLoggedIn = true;
   }
   const userId = req.session.user._id;
-
   res.render("home-view", { user: userId, userIsLoggedIn: userIsLoggedIn });
 });
 
@@ -74,12 +73,10 @@ router.post("/signup", (req, res) => {
       });
     });
 });
-// POST /login
-router.post("/home-view", (req, res) => {
-  // Get the username and password from the req.body
-  const { username, password } = req.body;
 
-  // Check if the username and the password are provided
+router.post("/login", (req, res) => {
+  const { username, password } = req.body;
+  
   const usernameNotProvided = !username || username === "";
   const passwordNotProvided = !password || password === "";
 
@@ -111,7 +108,7 @@ router.post("/home-view", (req, res) => {
       }
     })
     .catch((err) => {
-      res.render("/", {
+      res.render("index", {
         errorMessage: err.message || "Provide username and password.",
       });
     });

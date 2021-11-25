@@ -4,9 +4,9 @@ const Comment = require("./../models/Comment.model");
 const isLoggedIn = require("./../middleware/isLoggedIn");
 require("dotenv").config();
 
-router.get("/stocks-views/stock-view", isLoggedIn, (req, res) => {
-  res.render("home-view");
-});
+//router.get("/stocks-views/stock-view", isLoggedIn, (req, res) => {
+  //res.render("home-view");
+// });
 //! TECH LIST
 router.get("/techcategory", isLoggedIn, (req, res) => {
   const arrayStocks = [
