@@ -11,7 +11,12 @@ require("dotenv").config();
 const saltRounds = 10;
 
 router.get("/signup", (req, res) => {
-  res.render("auth-views/signup-form");
+  let userIsLoggedIn = true;
+  if (req.session.user) {
+    userIsLoggedIn = false;
+  }
+  
+  res.render("auth-views/signup-form",{userIsLoggedIn: userIsLoggedIn});
 });
 
 router.get("/home-view", isLoggedIn, (req, res) => {
@@ -21,12 +26,18 @@ router.get("/home-view", isLoggedIn, (req, res) => {
 });
 
 router.post("/signup", (req, res) => {
+  let userIsLoggedIn = true;
+  if (req.session.user) {
+    userIsLoggedIn = false;
+  }
   const { username, password } = req.body;
   const usernameNotProvided = !username || username === "";
   const passwordNotProvided = !password || password === "";
   if (usernameNotProvided || passwordNotProvided) {
     res.render("auth-views/signup-form", {
       errorMessage: "Provide username and password.",
+      userIsLoggedIn: userIsLoggedIn
+
     });
     return;
   }
@@ -75,46 +86,6 @@ router.post("/signup", (req, res) => {
     });
 });
 
-router.post("/",  (req, res) => {
-
-  const { username, password } = req.body;
-
-  const usernameNotProvided = !username || username === "";
-  const passwordNotProvided = !password || password === "";
-
-  if (usernameNotProvided || passwordNotProvided) {
-    res.render("index", {
-      errorMessage: "Provide username and password."},
-    );
-    return
-  }
-
-  let user;
-  // Check if the user exists
-  User.findOne({ username: username })
-    .then((foundUser) => {
-      user = foundUser;
-      if (!foundUser) {
-        throw new Error("Wrong credentials");
-      }
-
-      // Compare the passwords
-      return bcrypt.compare(password, foundUser.password);
-    })
-    .then((isCorrectPassword) => {
-      if (!isCorrectPassword) {
-        throw new Error("Wrong credentials");
-      } else if (isCorrectPassword) {
-        req.session.user = user;
-        res.redirect("home-view");
-      }
-    })
-    .catch((err) => {
-      res.render("index", {
-        errorMessage: err.message || "Provide username and password.",
-      });
-    });
-});
 
 router.get("/logout", isLoggedIn, (req, res) => {
   req.session.destroy((err) => {
@@ -124,5 +95,4 @@ router.get("/logout", isLoggedIn, (req, res) => {
     res.redirect("/");
   });
 });
-
 module.exports = router;
