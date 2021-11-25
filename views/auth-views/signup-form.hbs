@@ -1,22 +1,42 @@
 {{! SIGN UP FORM  }}
 
-<form id="form" action="/signup" method="POST">
+<div class="signup-form">
 
-  <label for="username">Username</label><br />
-  <input type="text" name="username" placeholder="Your username" />
+  <form id="form" action="/signup" method="POST">
+    <div class="input-group mb-3">
+      <label
+        for="username"
+        class="input-group-text"
+        id="inputGroup-sizing-default"
+      >Choose a username</label>
+      <br />
+      <input
+        type="text"
+        name="username"
+        class="form-control"
+        aria-label="Sizing example input"
+        aria-describedby="inputGroup-sizing-default"
+      />
+    </div>
+    <div class="input-group mb-3">
+      <label
+        for="password"
+        class="input-group-text"
+        id="inputGroup-sizing-default"
+      >Choose a password</label>
+      <br />
+      <input
+        type="password"
+        name="password"
+        class="form-control"
+        aria-label="Sizing example input"
+        aria-describedby="inputGroup-sizing-default"
+      />
+    </div>
+    {{#if errorMessage}}
+      <div class="error-message">{{errorMessage}}</div>
+    {{/if}}
+    <button class="btn btn-secondary" type="submit">Create your account</button>
+  </form>
 
-  <label for="password">Password</label><br />
-  <input type="password" name="password" />
-
-  {{! if add image to the profile }}
-  {{! add a random img }}
-  {{! <input type="file" name="image" /> }}
-
-  <button type="submit">Create account</button>
-</form>
-
-{{! error message display: }}
-
-{{#if errorMessage}}
-  <div class="error-message">{{errorMessage}}</div>
-{{/if}}
+</div>

@@ -1,4 +1,22 @@
+<div class="comment-page">
 
-<p>Name: {{foundComment.name}}</p>
-<p>Comment: {{foundComment.comment}}</p>
-<p>creator: {{foundComment.creator.username}}</p>
+  <div class="comment-edit-view">
+    <h3>Edit your Comment</h3>
+
+    <form action="/comment-edit/{{foundComment.ticker}}/{{foundComment._id}}" method="POST">
+      <div class="mb-2">
+      
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" type="text" name="comment" placeholder="Comment..."/>{{foundComment.comment}}</textarea>
+        <button class="btn btn-outline-secondary" type="submit">Submit changes</button>
+      </div>
+    </form>
+
+    <div class="edit-delete-btn">
+      <form action="/comment-edit/delete/{{foundComment.ticker}}/{{foundComment._id}}" method="POST">
+        <button  class="btn btn-outline-danger" type="submit">Delete</button>
+      </form>
+      <button class="btn btn-outline-secondary"> <a href="javascript:history.back()"> Back </a></button>
+
+    </div>
+  </div>
+</div>

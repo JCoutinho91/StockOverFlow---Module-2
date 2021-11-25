@@ -1,58 +1,69 @@
 const router = require("express").Router();
 const User = require("./../models/User.model");
+const UserInfo = require("./../models/UserInfo.model");
 const bcrypt = require("bcryptjs");
 const zxcvbn = require("zxcvbn");
 const axios = require("axios");
-const isLoggedIn = require("./../middleware/isLoggedIn")
+const isLoggedIn = require("./../middleware/isLoggedIn");
 require("dotenv").config();
 //Importing Needed Packages
 
 const saltRounds = 10;
 
 router.get("/signup", (req, res) => {
-  res.render("auth-views/signup-form");
+  let userIsLoggedIn = true;
+  if (req.session.user) {
+    userIsLoggedIn = false;
+  }
+  
+  res.render("auth-views/signup-form",{userIsLoggedIn: userIsLoggedIn});
 });
 
-/*
-// ! original - /home-view
-router.get("/home-view", (req, res) => {
-  res.render("home-view");
-});
-*/
+router.get("/home-view", isLoggedIn, (req, res) => {
+  const userId = req.session.user._id;
 
-// ! modified - home-view -->
-router.get("/home-view", (req, res) => {
-  const arrayStocks = ["AAPL", "AMZN"];
-  // !this comment is just to separate to show less stocks for tests
-  // , "TESL", "MSFT", "AA", "GOOG"];
-  const stocksPrs = arrayStocks.map((ticker) => {
-    return axios.get(
-      `https://www.styvio.com/apiV2/${ticker}/${process.env.API_KEY}`
-    );
-  });
-  Promise.all(stocksPrs).then((values) => {
-    res.render("home-view", { stockList: values });
-  });
+  res.render("home-view", { user: userId });
 });
-// ! modified - home-view <--
 
 router.post("/signup", (req, res) => {
+  let userIsLoggedIn = true;
+  if (req.session.user) {
+    userIsLoggedIn = false;
+  }
   const { username, password } = req.body;
   const usernameNotProvided = !username || username === "";
   const passwordNotProvided = !password || password === "";
   if (usernameNotProvided || passwordNotProvided) {
     res.render("auth-views/signup-form", {
       errorMessage: "Provide username and password.",
+      userIsLoggedIn: userIsLoggedIn
+
     });
     return;
   }
+
+  const regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
+  if (!regex.test(password)) {
+    res.status(400).render("auth-views/signup-form", {
+      errorMessage:
+        "Weak Password.",
+        userIsLoggedIn: userIsLoggedIn
+    });
+
+    return;
+  }
+  let createdUserInfo;
 
   User.findOne({ username: username })
     .then((foundUser) => {
       if (foundUser) {
         throw new Error("The username is taken");
       }
+      return UserInfo.create({});
       // Generating the salt string
+    })
+    .then((userInfo) => {
+      createdUserInfo = userInfo;
       return bcrypt.genSalt(saltRounds);
     })
     .then((salt) => {
@@ -60,20 +71,23 @@ router.post("/signup", (req, res) => {
       return bcrypt.hash(password, salt);
     })
     .then((hashedPassword) => {
-      // Create the new user
-      return User.create({ username: username, password: hashedPassword});
+      return User.create({
+        username: username,
+        password: hashedPassword,
+        userInfo: createdUserInfo._id,
+      });
     })
     .then((createdUser) => {
-      // Redirect to the home `/` page after the successful signup
       res.redirect("/");
     })
     .catch((err) => {
-      res.render("auth-views/signup-form", {
+      res.render("/auth-views/signup-form", {
         errorMessage: err.message || "Error while trying to sign up",
       });
     });
 });
 
+<<<<<<< HEAD
 // POST /login
 router.post("/home-view", (req, res) => {
   // Get the username and password from the req.body
@@ -117,9 +131,10 @@ router.post("/home-view", (req, res) => {
       });
     });
 });
+=======
+>>>>>>> develop
 
 router.get("/logout", isLoggedIn, (req, res) => {
-
   req.session.destroy((err) => {
     if (err) {
       return res.render("error");
@@ -127,5 +142,4 @@ router.get("/logout", isLoggedIn, (req, res) => {
     res.redirect("/");
   });
 });
-
 module.exports = router;

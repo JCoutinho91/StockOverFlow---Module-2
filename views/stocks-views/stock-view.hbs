@@ -1,12 +1,31 @@
-<h1>Company List</h1>
 
-<hr />
-{{#each stockList}}
-  <p>Ticker Symbol:{{this.data.ticker}}</p>
-  <p>Company Name:{{this.data.companyInformation.shortName}}</p>
-  <p>Current Price:{{this.data.priceData.currentPrice}}</p>
-  <p>MarketCap: {{this.data.companyInformation.marketCap}}</p>
-  <img src="{{this.data.companyInformation.logoURL}}" alt="logo" srcset="" />
-  <p><a href="/stock-view-details/{{this.data.ticker}}">VIEW MORE</a></p>
-  <hr />
-{{/each}}
+<div class="row row-cols-1 row-cols-md-2 g-4 d-flex justify-content-evenly">
+  {{#each stockList}}
+    <div class="card mb-3 border-0" style="max-width: 540px;">
+      <div class="row g-0">
+        <div class="col-md-4 align-self-center">
+          <img
+            src="{{this.data.companyInformation.logoURL}}"
+            class="img-fluid rounded-start"
+            alt="Company logo"
+          />
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5
+              class="card-title"
+            ><b>{{this.data.companyInformation.shortName}}</b></h5>
+            <p class="card-text">({{this.data.ticker}})</p>
+            <p class="card-text"></p>
+            <p class="card-text"></p>
+            <p class="card-text"><a
+                href="/stock-view-details/{{this.data.ticker}}"
+              >View Details</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  {{/each}} 
+</div>
+<button class="btn btn-outline-secondary"> <a href="javascript:history.back()"> Back </a></button>

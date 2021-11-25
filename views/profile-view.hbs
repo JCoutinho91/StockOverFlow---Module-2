@@ -1,0 +1,28 @@
+<div class="profile-view">
+
+  <h2>My profile</h2>
+  <div class="d-flex justify-content-center">
+
+    <div class="card" style="width: 18rem;">
+      <img
+        src="{{userprofile.userInfo.imageUrl}}"
+        class="card-img-top"
+        alt="profile img"
+      />
+      <div class="card-body">
+        <p class="card-text">First Name: {{userprofile.userInfo.firstname}}</p>
+        <p class="card-text">Age: {{userprofile.userInfo.age}}</p>
+        <p class="card-text">About me: {{userprofile.userInfo.aboutme}}</p>
+        <p class="card-text"></p>
+        <div class="d-flex justify-content-between">
+          <a
+            href="/Profite-edit/{{userprofile._id}}"
+            class="btn btn-primary"
+          >Edit Info</a>
+          <a class="btn btn-primary" href="javascript:history.back()">Cancel</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,82 @@
+{{! SIGN UP FORM  }}
+<div class="signup-form">
+
+  <form id="form" action="/profite-edit/{{user.userInfo._id}}" method="POST" enctype="multipart/form-data">
+    <div class="input-group mb-3">
+      <label
+        for="username"
+        class="input-group-text"
+        id="inputGroup-sizing-default"
+         >First name</label>
+      <br />
+      <input
+        type="text"
+        name="firstname" value="{{user.userInfo.firstname}}"
+        class="form-control"
+        aria-label="Sizing example input"
+        aria-describedby="inputGroup-sizing-default"
+      />
+    </div>
+    <div class="input-group mb-3">
+      <label
+        for="password"
+        class="input-group-text"
+        id="inputGroup-sizing-default"
+      >lastname</label>
+      <br />
+      <input
+        type="text"
+        name="lastname"
+        class="form-control"
+        aria-label="Sizing example input"
+        aria-describedby="inputGroup-sizing-default"
+      />
+    </div>
+
+    <div class="input-group mb-3">
+      <label
+        for="password"
+        class="input-group-text"
+        id="inputGroup-sizing-default"
+      >Age</label>
+      <br />
+      <input
+        type="text"
+        name="age"
+        class="form-control"
+        aria-label="Sizing example input"
+        aria-describedby="inputGroup-sizing-default"
+      /></div>
+      <div class="input-group mb-3">
+      <label
+        for="password"
+        class="input-group-text"
+        id="inputGroup-sizing-default"
+      >About Me:</label>
+      <br />
+      <input
+        type="text"
+        name="aboutme"
+        class="form-control"
+        aria-label="Sizing example input"
+        aria-describedby="inputGroup-sizing-default"
+      /></div>
+      <div class="input-group mb-3">
+      <label
+        for="password"
+        class="input-group-text"
+        id="inputGroup-sizing-default"
+      >Photo</label>
+      <br />
+      <input
+        type="file"
+        name="profile-cover-image"
+        class="form-control"
+        aria-label="Sizing example input"
+        aria-describedby="inputGroup-sizing-default"
+      /></div>
+    <button class="btn btn-secondary" type="submit">Save your changes</button>
+    <br>
+    <button class="btn btn-outline-secondary"> <a href="javascript:history.back()"> Back </a></button>
+  </form>
+
