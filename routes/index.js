@@ -3,6 +3,7 @@ const axios = require("axios");
 const UserInfo = require("./../models/UserInfo.model");
 const fileUploader = require('./../config/cloudinary.config');
 const User = require("./../models/User.model");
+const isLoggedIn = require("./../middleware/isLoggedIn");
 require("dotenv").config();
 //const isLoggedIn = require("isLoggedIn")
 
@@ -15,7 +16,8 @@ router.get("/", (req, res, next) => {
   res.render("index", {userIsLoggedIn: userIsLoggedIn});
 });
 
-router.get("/search", (req, res) => {
+router.get("/search", isLoggedIn, (req, res) => {
+  console.log("req.query", req.query)
   const stockFind = req.query.stockFind;
   console.log(stockFind)
    axios.get(
@@ -26,7 +28,7 @@ router.get("/search", (req, res) => {
   })
 });
 
-router.get("/Profile/:userID", (req, res) => {
+router.get("/Profile/:userID", isLoggedIn,  (req, res) => {
   const thisUser = req.params.userID;
   User.findById(thisUser)
   .populate("userInfo")
@@ -36,7 +38,7 @@ router.get("/Profile/:userID", (req, res) => {
   });
 });
 
-router.get("/Profite-edit/:infoID", (req, res) => {
+router.get("/Profite-edit/:infoID", isLoggedIn, (req, res) => {
   const thisUser = req.params.infoID;
   User.findById(thisUser)
   .populate("userInfo")
@@ -47,10 +49,6 @@ router.get("/Profite-edit/:infoID", (req, res) => {
 });
 
 router.post("/profite-edit/:infoID", fileUploader.single("profile-cover-image"), (req, res) => {
-  let
-  if(imageUrl === undefined){
-    imageUrl="https://images.unsplash.com/photo-1601042879364-f3947d3f9c16?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80"
-  }
   const Info = req.params.infoID;
   const { firstname, lastname, age, aboutme } = req.body;
   UserInfo.findByIdAndUpdate(Info, {
