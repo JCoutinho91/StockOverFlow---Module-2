@@ -46,7 +46,7 @@ router.post("/signup", (req, res) => {
   if (!regex.test(password)) {
     res.status(400).render("auth-views/signup-form", {
       errorMessage:
-        "Password needs to have at least 8 chars and must contain at least one number, one lowercase and one uppercase letter.",
+        "Weak Password...",
         userIsLoggedIn: userIsLoggedIn
     });
 
