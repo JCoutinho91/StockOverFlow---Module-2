@@ -5,6 +5,11 @@ h1 {
   height: 50px;
 }
 
+h2 {
+  text-align: center;
+  margin: 5%;
+}
+
 hr {
   color: black;
 }
@@ -99,7 +104,7 @@ ul {
 
 .home-img img {
   max-width: 230px;
-  max-height: 180px;
+  max-height: 150px;
 }
 
 .list-group h5 {
@@ -167,11 +172,12 @@ ul {
 
 /* * profile-view */
 
-.profile-view h2 {
-  text-align: center;
-}
-
 .profile-view img {
   border-radius: 100%;
   padding: 10%;
+}
+
+/** news */
+.back-btn {
+  margin-left: 5%;
 }
