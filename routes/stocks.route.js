@@ -273,7 +273,6 @@ router.get("/stock-view-details/:stockId", isLoggedIn, async (req, res) => {
 });
 
 router.post("/stock-view-details/:stockID/create", isLoggedIn, (req, res) => {
-  console.log("in post");
   const stockId = req.params.stockID;
   const { name, comment } = req.body;
   const userId = req.session.user._id;
@@ -282,9 +281,10 @@ router.post("/stock-view-details/:stockID/create", isLoggedIn, (req, res) => {
     comment: comment,
     ticker: stockId,
     creator: userId,
-  }).then((createdComment) => {});
+  }).then((createdComment) => {
   res.redirect(`/stock-view-details/${stockId}`);
 });
+})
 
 router.post("/comment-edit/:stockIDD/:commentId", (req, res) => {
   const stockId = req.params.stockIDD
