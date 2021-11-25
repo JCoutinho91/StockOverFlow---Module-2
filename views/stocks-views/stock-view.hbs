@@ -1,7 +1,7 @@
-<h1>Stock</h1>
+
 <div class="row row-cols-1 row-cols-md-2 g-4 d-flex justify-content-evenly">
   {{#each stockList}}
-    <div class="card mb-3" style="max-width: 540px;">
+    <div class="card mb-3 border-0" style="max-width: 540px;">
       <div class="row g-0">
         <div class="col-md-4 align-self-center">
           <img
@@ -20,7 +20,7 @@
             <p class="card-text"></p>
             <p class="card-text"><a
                 href="/stock-view-details/{{this.data.ticker}}"
-              >Check More</a></p>
+              >View Details</a></p>
           </div>
         </div>
       </div>

@@ -33,7 +33,7 @@
         <p><h5><b>Balance Sheet:</h5></b>
          {{#each data.stockInfo.data.fundamentals.balanceSheet}}
          <p><b>Date: {{this.date}}</b></p>
-         <p> Assets: <p class="dollars">{{this.assets}}</p></p>
+         <p> Assets: ${{this.assets}}</p>
          <p>Liabilities: ${{this.liabilities}}</p>
         {{/each}}
 
