@@ -99,12 +99,18 @@ router.get("/Profite-edit/:infoID", isLoggedIn, (req, res) => {
 router.post("/profite-edit/:infoID", fileUploader.single("profile-cover-image"), (req, res) => {
   const Info = req.params.infoID;
   const { firstname, lastname, age, aboutme } = req.body;
+  let tempImage;
+if (!req.file) {
+  tempImage = "/images/defaultcover.png";
+} else {
+  tempImage = req.file.path;
+}
   UserInfo.findByIdAndUpdate(Info, {
     firstname: firstname,
     lastname: lastname,
     age: age,
     aboutme: aboutme,
-    imageUrl: req.file.path
+    imageUrl: tempImage
 
   }).then((updatedUserInfo) => {
     console.log(updatedUserInfo);
