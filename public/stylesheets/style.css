@@ -1,6 +1,21 @@
+/* ! ERASER OR EDIT */
+
+h1 {
+  /* padding: 5% 0;
+  color: 15px; */
+  text-align: center;
+  height: 50px;
+}
+
+hr {
+  color: black;
+}
+
+/*  STYLE CSS */
 * {
   margin: 0;
   padding: 0;
+  position: relative;
 }
 
 body {
@@ -16,20 +31,17 @@ a:hover {
   color: #00b7ff;
 }
 
-h1 {
-  padding: 5% 0;
-  color: 15px;
-  text-align: center;
-}
-
 ul {
   list-style: none;
 }
 
-/* ! ERASER OR EDIT */
+.logo img {
+  width: 350px;
+}
 
-hr {
-  color: black;
+/* * nav-bar */
+.nav-bar-logo img {
+  height: 32px;
 }
 
 /** index.hbs */
@@ -43,10 +55,10 @@ hr {
   align-items: center;
 }
 
-.index h1 {
+/* .index h1 {
   text-align: center;
   margin-bottom: 10%;
-}
+} */
 
 .container-index {
   width: 400px;
@@ -60,7 +72,7 @@ hr {
 
 .signup-form {
   color: #fff;
-  background-image: url(../images/index-bg3.jpg);
+  background-image: url(../images/bg3.jpg);
   background-size: 100%;
   height: 100%;
   display: flex;
@@ -69,10 +81,10 @@ hr {
   flex-direction: column;
 }
 
-.signup-form h1 {
+/* .signup-form h1 {
   text-align: center;
   margin-bottom: 5%;
-}
+} */
 
 .signup-form button {
   width: 100%;
