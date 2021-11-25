@@ -1,4 +1,4 @@
-<h1>Companies List</h1>
+<h1>Stock</h1>
 <div class="row row-cols-1 row-cols-md-2 g-4 d-flex justify-content-evenly">
   {{#each stockList}}
     <div class="card mb-3" style="max-width: 540px;">
@@ -14,13 +14,13 @@
           <div class="card-body">
             <h5
               class="card-title"
-            >{{this.data.companyInformation.shortName}}</h5>
-            <p class="card-text">Company ticker: {{this.data.ticker}}</p>
+            ><b>{{this.data.companyInformation.shortName}}</b></h5>
+            <p class="card-text">({{this.data.ticker}})</p>
             <p class="card-text"></p>
             <p class="card-text"></p>
             <p class="card-text"><a
                 href="/stock-view-details/{{this.data.ticker}}"
-              >More information</a></p>
+              >Check More</a></p>
           </div>
         </div>
       </div>
