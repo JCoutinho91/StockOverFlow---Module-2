@@ -1,5 +1,9 @@
 /* ! ERASER OR EDIT */
 
+.dollars:before {
+  content: "$";
+}
+
 h1 {
   text-align: center;
   height: 50px;

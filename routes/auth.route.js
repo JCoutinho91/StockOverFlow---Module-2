@@ -77,7 +77,7 @@ router.post("/signup", (req, res) => {
 
 router.post("/login", (req, res) => {
   const { username, password } = req.body;
-  
+
   const usernameNotProvided = !username || username === "";
   const passwordNotProvided = !password || password === "";
 
