@@ -33,6 +33,9 @@
           aria-describedby="inputGroup-sizing-default"
         />
       </div>
+      {{#if errorMessage}}
+        <div class="error-message">{{errorMessage}}</div>
+      {{/if}}
       <button class="btn btn-secondary" type="submit">Login</button>
 
     </form>
@@ -43,9 +46,5 @@
   </div>
 
   {{! error message display: }}
-
-  {{#if errorMessage}}
-    <div class="error-message">{{errorMessage}}</div>
-  {{/if}}
 
 </div>

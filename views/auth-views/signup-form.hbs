@@ -1,7 +1,6 @@
 {{! SIGN UP FORM  }}
 
 <div class="signup-form">
-  <h1>StockOverFlow</h1>
 
   <form id="form" action="/signup" method="POST">
     <div class="input-group mb-3">
@@ -34,26 +33,10 @@
         aria-describedby="inputGroup-sizing-default"
       />
     </div>
+    {{#if errorMessage}}
+      <div class="error-message">{{errorMessage}}</div>
+    {{/if}}
     <button class="btn btn-secondary" type="submit">Create your account</button>
   </form>
 
-  {{! <div class="input-group mb-3">
-    <label
-      for="password"
-      class="input-group-text"
-      id="inputGroup-sizing-default"
-    >Password</label>
-    <input
-      type="password"
-      name="password"
-      class="form-control"
-      aria-label="Sizing example input"
-      aria-describedby="inputGroup-sizing-default"
-    />
-  </div> }}
 </div>
-{{! error message display: }}
-
-{{#if errorMessage}}
-  <div class="error-message">{{errorMessage}}</div>
-{{/if}}
