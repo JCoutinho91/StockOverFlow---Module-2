@@ -25,7 +25,7 @@
           <h5>Balance Sheet:</h5>
           
           <div>
-          <ul class="order-balance-sheet d-flex flex-row-reverse ">
+          <ul class="order-balance-sheet d-flex flex-row-reverse justify-content-around">
           {{#each data.stockInfo.data.fundamentals.balanceSheet}}
           <div>
           <li class="list-balance">
@@ -75,7 +75,9 @@
         method="POST"
       >
         <textarea class="stock-label form-control" id="exampleFormControlTextarea1" rows="2" type="text" name="comment" placeholder="Comment..."/></textarea>
+        <div class="class-back">
         <button class="btn btn-outline-secondary" type="submit">Post</button>
+        </div>
       </form>
 
       <hr />
@@ -86,12 +88,17 @@
       <p><b>Comment:</b> {{this.comment}}</p>
       {{#if this.isCreator}}
       <a href="/comment-edit/{{this.ticker}}/{{this._id}}">
+      <div >
+    <div class="class-back">
         <button class="btn btn-outline-secondary" type="submit">Edit</button></a>
+    </div>
         <hr />
         {{/if}}
       {{/each}}
     </div>
 
+<div class="class-back">
 
 <button class="btn btn-outline-secondary"> <a href="javascript:history.back()"> Back </a></button>
+</div>
 </div>
