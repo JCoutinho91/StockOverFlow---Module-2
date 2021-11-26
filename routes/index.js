@@ -87,12 +87,16 @@ router.get("/Profile/:userID", isLoggedIn,  (req, res) => {
 });
 
 router.get("/Profite-edit/:infoID", isLoggedIn, (req, res) => {
+  let userIsLoggedIn = true;
+  if (req.session.user) {
+    userIsLoggedIn = false;
+  }
   const thisUser = req.params.infoID;
   User.findById(thisUser)
   .populate("userInfo")
   .then((foundUser) => {
     console.log(foundUser);
-    res.render(`profile-edit`, { user: foundUser });
+    res.render(`profile-edit`, { user: foundUser});
   });
 });
 
