@@ -129,6 +129,8 @@ ul {
 /** home-view  */
 
 .home-img img {
+  border: 5px solid #a8500d;
+  border-radius: 5px;
   max-width: 230px;
   max-height: 150px;
   width: 100%;
@@ -144,7 +146,13 @@ ul {
   font-size: 2rem;
   color: black;
 }
-.home-view hr {
+.home-category-list {
+  background-color: #f47f24;
+}
+.horizontal line {
+  color: black;
+  margin: 10% 0;
+  height: 5px;
   width: 70%;
 }
 
