@@ -6,7 +6,6 @@ const fileUploader = require('./../config/cloudinary.config');
 const User = require("./../models/User.model");
 const isLoggedIn = require("./../middleware/isLoggedIn");
 require("dotenv").config();
-//const isLoggedIn = require("isLoggedIn")
 
 router.get("/", (req, res, next) => {
   let userIsLoggedIn = true;
@@ -96,23 +95,22 @@ router.get("/Profite-edit/:infoID", isLoggedIn, (req, res) => {
     res.render(`profile-edit`, { user: foundUser });
   });
 });
-/*
-pictureFix = () =>{
-  if(req.file.path === undefined){
-    return url
-  }else{req.file.path}
-}
-*/
+
 router.post("/profite-edit/:infoID", fileUploader.single("profile-cover-image"), (req, res) => {
   const Info = req.params.infoID;
   const { firstname, lastname, age, aboutme } = req.body;
+  let tempImage;
+if (!req.file) {
+  tempImage = "/images/defaultcover.png";
+} else {
+  tempImage = req.file.path;
+}
   UserInfo.findByIdAndUpdate(Info, {
     firstname: firstname,
     lastname: lastname,
     age: age,
     aboutme: aboutme,
-    imageUrl: req.file.path
-
+    imageUrl: tempImage
   }).then((updatedUserInfo) => {
     console.log(updatedUserInfo);
     res.redirect(`./../home-view`);
