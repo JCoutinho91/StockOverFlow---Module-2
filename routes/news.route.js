@@ -22,16 +22,4 @@ router.get("/newsfeed", isLoggedIn,(req, res) => {
   });
 });
 
-router.get("/news-details",isLoggedIn, (req, res) => {
-  res.render("news-view-detail");
-  const userSessionID = req.sessionID
-  console.log(userSessionID)
-});
-
-router.post("/news-view/create", isLoggedIn, (req,res)=> {
-
-
-
-})
-
 module.exports = router;

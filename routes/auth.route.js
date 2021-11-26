@@ -44,21 +44,20 @@ router.post("/signup", (req, res) => {
   const regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
   if (!regex.test(password)) {
     res.status(400).render("auth-views/signup-form", {
-      errorMessage: "Weak Password.",
+      errorMessage: "At least one upper case, and 8 characters",
       userIsLoggedIn: userIsLoggedIn,
     });
 
     return;
   }
   let createdUserInfo;
-
   User.findOne({ username: username })
     .then((foundUser) => {
+      console.log(foundUser)
       if (foundUser) {
         throw new Error("The username is taken");
       }
       return UserInfo.create({});
-      // Generating the salt string
     })
     .then((userInfo) => {
       createdUserInfo = userInfo;
