@@ -1,7 +1,8 @@
-
-<div class="row row-cols-1 row-cols-md-2 g-4 d-flex justify-content-evenly">
+<div
+  class="stock-genereal-view row row-cols-1 row-cols-md-2 g-4 d-flex justify-content-evenly"
+>
   {{#each stockList}}
-    <div class="card mb-3 border-0" style="max-width: 540px;">
+    <div class="stock-label col card mb-3" style="max-width: 540px;">
       <div class="row g-0">
         <div class="col-md-4 align-self-center">
           <img
@@ -12,9 +13,8 @@
         </div>
         <div class="col-md-8">
           <div class="card-body">
-            <h5
-              class="card-title"
-            ><b>{{this.data.companyInformation.shortName}}</b></h5>
+            <h5 class="card-title"><b
+              >{{this.data.companyInformation.shortName}}</b></h5>
             <p class="card-text">({{this.data.ticker}})</p>
             <p class="card-text"></p>
             <p class="card-text"></p>
@@ -26,6 +26,9 @@
       </div>
     </div>
 
-  {{/each}} 
+  {{/each}}
 </div>
-<button class="btn btn-outline-secondary"> <a href="javascript:history.back()"> Back </a></button>
+<div class="class-back">
+  <button class="back-btn btn btn-outline-secondary">
+    <a href="javascript:history.back()"> Back </a></button>
+</div>

@@ -111,9 +111,7 @@ if (!req.file) {
     age: age,
     aboutme: aboutme,
     imageUrl: tempImage
-  })
-  
-  .then((updatedUserInfo) => {
+  }).then((updatedUserInfo) => {
     console.log(updatedUserInfo);
     res.redirect(`./../home-view`);
   });

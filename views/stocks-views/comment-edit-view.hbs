@@ -6,7 +6,7 @@
     <form action="/comment-edit/{{foundComment.ticker}}/{{foundComment._id}}" method="POST">
       <div class="mb-2">
       
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" type="text" name="comment" placeholder="Comment..."/>{{foundComment.comment}}</textarea>
+        <textarea class="stock-label form-control" id="exampleFormControlTextarea1" rows="2" type="text" name="comment" placeholder="Comment..."/>{{foundComment.comment}}</textarea>
         <button class="btn btn-outline-secondary" type="submit">Submit changes</button>
       </div>
     </form>
@@ -15,7 +15,10 @@
       <form action="/comment-edit/delete/{{foundComment.ticker}}/{{foundComment._id}}" method="POST">
         <button  class="btn btn-outline-danger" type="submit">Delete</button>
       </form>
+    
       <button class="btn btn-outline-secondary"> <a href="javascript:history.back()"> Back </a></button>
+    
+
 
     </div>
   </div>

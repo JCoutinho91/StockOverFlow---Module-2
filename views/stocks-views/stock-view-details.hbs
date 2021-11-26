@@ -1,99 +1,104 @@
-<div class="stock-detail">
-  <div class="stock-info-news row">
-    <div class="stock-detail-info col-md-8">
-      <article>
-          <i class="fas fa-thumbs-up"></i>
-        <div>
+<div class="stock-details-view">
+<div class="news-stock-detail d-flex justify-content-around  align-items-center">
+  <div class="stock-details stock-detail-info col-md-8">
           <h2> {{data.stockInfo.data.companyInformation.shortName}}</h2>
-          <p></b><i> ({{data.stockInfo.data.ticker}})</i></p>
-        </div>
-        <p><b><h5>Current Price:</h5></b>
-          <b><h5>${{data.stockInfo.data.priceData.currentPrice}}</h4></p>
-        <p>
+          <p><i> ({{data.stockInfo.data.ticker}})</i></p>
+          <h5>Current Price:</h5>
+          <h5>${{data.stockInfo.data.priceData.currentPrice}}</h5>
           <img
             src="{{data.stockInfo.data.companyInformation.logoURL}}"
             alt="logocompany"
             srcset=""
           />
-        <p><b>Brief of the Company:</b>
+          <p><b>Brief of the Company:</b>
           <br />
           {{data.stockInfo.data.companyInformation.companyDescription}}</p>
-        <p><b>
-          <h5>Company location:</b></h5>
+          <h5>Company location:</h5>
           {{data.stockInfo.data.companyInformation.companyLocation}}
-        </p>
-        <br>
-        <p><h5><b>Market Capitalization:</h5> $</b>{{data.stockInfo.data.companyInformation.marketCap}}</p> 
-        <br>
-        <h5><p><b>Shareholder Breakdown:</b></h5>
-        <p>insiderHoldings:{{data.stockInfo.data.fundamentals.shareholderBreakdown.insiderHoldings}}%</p>
-        <p>institutionalHoldings:{{data.stockInfo.data.fundamentals.shareholderBreakdown.institutionalHoldings}}%</p>
-        <p>generalPublicHoldings:{{data.stockInfo.data.fundamentals.shareholderBreakdown.generalPublicHoldings}}%</p>
-        <br>
-        <p><h5><b>Balance Sheet:</h5></b>
-         {{#each data.stockInfo.data.fundamentals.balanceSheet}}
-         <p><b>Date: {{this.date}}</b></p>
-         <p> Assets: ${{this.assets}}</p>
-         <p>Liabilities: ${{this.liabilities}}</p>
-        {{/each}}
-
-        <p><b>
-         <h5> Number of institutional Owners:</b></h5>
+          <h5><b>Market Capitalization:</h5> $</b>{{data.stockInfo.data.companyInformation.marketCap}}
+          <h5>Shareholder Breakdown:</h5>
+          <p><b>Holdings</b>:{{data.stockInfo.data.fundamentals.shareholderBreakdown.insiderHoldings}}%</p>
+          <p><b>Institutional Holdings</b>:{{data.stockInfo.data.fundamentals.shareholderBreakdown.institutionalHoldings}}%</p>
+          <p><b>General Public Holdings</b>:{{data.stockInfo.data.fundamentals.shareholderBreakdown.generalPublicHoldings}}%</p>
+         <h5> Number of institutional Owners:</h5>
          <p> {{data.stockInfo.data.fundamentals.totalInstitutionalOwners}}</p>
-        </p>
-      </article>
-    </div>
-
-    <div class="stock-detail-news col-md-4 ms-auto">
-        <ul class="list-group">
-          <li>
-            <h3 class="list-group-item active" aria-current="true">
-            Latest news from {{data.stockInfo.data.companyInformation.shortName}}
-            </h3>
+          <h5>Balance Sheet:</h5>
+          
+          <div>
+          <ul class="order-balance-sheet d-flex flex-row-reverse justify-content-around">
+          {{#each data.stockInfo.data.fundamentals.balanceSheet}}
+          <div>
+          <li class="list-balance">
+          <p><b>Date: {{this.date}}</b></p>
+          <p> Assets: ${{this.assets}}</p>
+          <p>Liabilities: ${{this.liabilities}}</p>
           </li>
-          <li class="list-group-item list-group-item-action">
-            <a href="{{data.stockInfo.data.companyInformation.newsData.0.newsLink}}">
-            {{data.stockInfo.data.companyInformation.newsData.0.newsArticle}}
-            </a>
-          </li>
-          <li class="list-group-item list-group-item-action">
-            <a href="{{data.stockInfo.data.companyInformation.newsData.1.newsLink}}">
-            {{data.stockInfo.data.companyInformation.newsData.1.newsArticle}}
-            </a>
-          </li>
-          <li class="list-group-item list-group-item-action">
-            <a href="{{data.stockInfo.data.companyInformation.newsData.2.newsLink}}">
-            {{data.stockInfo.data.companyInformation.newsData.2.newsArticle}}
-            </a>
-          </li>
-        </ul>
-        </div>
-    </div>
+          </div>
+          {{/each}}
+          </ul>
+          </div>
+         
   </div>
-  <hr />
+  <div class="last-news-detail stock-detail-news col-md-4 ms-auto">
+          <ul class="list-group">
+            <li>
+              <h3 class="news-list-title">
+              Latest news from {{data.stockInfo.data.companyInformation.shortName}}
+              </h3>
+            </li>
+            <li class="news-list list-group-item list-group-item-action">
+              <a href="{{data.stockInfo.data.companyInformation.newsData.0.newsLink}}">
+              {{data.stockInfo.data.companyInformation.newsData.0.newsArticle}}
+              </a>
+            </li>
+            <li class="news-list list-group-item list-group-item-action">
+              <a href="{{data.stockInfo.data.companyInformation.newsData.1.newsLink}}">
+              {{data.stockInfo.data.companyInformation.newsData.1.newsArticle}}
+              </a>
+            </li>
+            <li class="news-list list-group-item list-group-item-action">
+              <a href="{{data.stockInfo.data.companyInformation.newsData.2.newsLink}}">
+              {{data.stockInfo.data.companyInformation.newsData.2.newsArticle}}
+              </a>
+            </li>
+          </ul>
+  </div>
+  </div>
 
-  <div class="mb-2 comment-stock-detail">
-    <p><b>Tell us what you think about this company</b></p>
-    <form
-      action="/stock-view-details/{{data.stockInfo.data.ticker}}/create"
-      method="POST"
-    >
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" type="text" name="comment" placeholder="Comment..."/></textarea>
-    <button class="btn btn-outline-secondary" type="submit">Post</button>
-  </form>
-
-  <hr />
-  <hr />
-
-  {{#each data.foundComment}}
-    <p><b>Username:</b> {{this.creator.username}}</p>
-    <p><b>Comment:</b> {{this.comment}}</p>
-    {{#if this.isCreator}}
-      <a href="/comment-edit/{{this.ticker}}/{{this._id}}">
-        <button class="btn btn-outline-secondary" type="submit">Edit</button></a>
       <hr />
-    {{/if}}
-  {{/each}}
-  </div>
-</div>
+
+
+    <div class="mb-2 comment-stock-detail">
+      <p><b>Tell us what you think about this company</b></p>
+      <form
+        action="/stock-view-details/{{data.stockInfo.data.ticker}}/create"
+        method="POST"
+      >
+        <textarea class="stock-label form-control" id="exampleFormControlTextarea1" rows="2" type="text" name="comment" placeholder="Comment..."/></textarea>
+        <div class="class-back">
+        <button class="btn btn-outline-secondary" type="submit">Post</button>
+        </div>
+      </form>
+
+      <hr />
+  
+
+      {{#each data.foundComment}}
+      <p><b>Username:</b> {{this.creator.username}}</p>
+      <p><b>Comment:</b> {{this.comment}}</p>
+      {{#if this.isCreator}}
+      <a href="/comment-edit/{{this.ticker}}/{{this._id}}">
+      <div >
+    <div class="class-back">
+        <button class="btn btn-outline-secondary" type="submit">Edit</button></a>
+    </div>
+        <hr />
+        {{/if}}
+      {{/each}}
+    </div>
+
+<div class="class-back">
+
 <button class="btn btn-outline-secondary"> <a href="javascript:history.back()"> Back </a></button>
+</div>
+</div>
