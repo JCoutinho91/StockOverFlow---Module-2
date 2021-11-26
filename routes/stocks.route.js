@@ -12,7 +12,7 @@ router.get("/techcategory", isLoggedIn, (req, res) => {
   const arrayStocks = [
     "AAPL",
     "AMZN",
-    "TESL",
+    "MSI",
     "MSFT",
     "UBER",
     "GOOG",
