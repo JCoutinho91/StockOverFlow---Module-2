@@ -149,7 +149,7 @@ ul {
 .home-category-list {
   background-color: #f47f24;
 }
-.horizontal line {
+.horizontal-line {
   color: black;
   margin: 10% 0;
   height: 5px;
@@ -162,23 +162,64 @@ ul {
   width: 120px;
   background-color: #ff9340;
   border-radius: 100%;
+  margin: 10% auto;
 }
 .icon-home-info img {
   height: 80px;
 }
-/* * stock-detail-view */
 
-.stock-detail {
-  padding: 0 10%;
+/* * stock-view */
+.stock-genereal-view {
+  /* max-width: 100%; */
+  background-color: #ff9340;
 }
 
-.stock-detail p {
+.stock-label {
+  border: 5px solid #a8500d;
+  border-radius: 10px;
+  padding: 3%;
+}
+
+/* * stock-detail-view */
+.stock-details-view {
+  background-color: #ff9340;
+}
+
+.stock-details {
+  background-color: #fff;
+  border: 5px solid #a8500d;
+  border-radius: 10px;
+  padding: 3%;
+  margin: 20px;
+}
+
+.news-stock-detail {
+  padding: 0 10px;
+}
+
+.news-stock-detail h2 {
+  text-align: left;
+}
+
+.stock-details p {
+  line-height: 1.5em;
   text-align: justify;
   margin: 1rem auto;
 }
 
+.stock-details {
+  margin-right: 5%;
+}
+
 .comment-stock-detail {
   margin: 0 10%;
+}
+
+.order-balance-sheet p {
+  background-color: lightgrey;
+  border-top: 1px solid;
+  border-bottom: 1px solid;
+  margin-left: 10px;
 }
 
 .comment-stock-detail textarea {
@@ -192,6 +233,8 @@ ul {
 
 /* * edit-comment-view */
 .comment-page {
+  background-color: #ff9340;
+  padding: 5% 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
