@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100;0,400;0,500;0,600;0,700;1,100;1,300&family=PT+Sans:wght@400;700&family=Roboto:wght@500&display=swap");
+
 h1 {
   text-align: center;
   height: 50px;
@@ -146,6 +148,31 @@ ul {
   max-width: 220px;
 }
 
+.profile-home {
+  text-align: right;
+  padding-top: 10px;
+  width: 100%;
+  background-color: #f47f24;
+}
+
+.profile-home button {
+  padding: 0;
+  max-height: 50px;
+  border: 2px solid #a8500d;
+  border-radius: 5px;
+  background-color: #a8500d;
+}
+
+.profile-home a {
+  color: #fff;
+  font-weight: 400;
+}
+
+.home-img {
+  width: 100%;
+  max-width: 230px;
+  padding: 3px;
+}
 .home-img img {
   border: 5px solid #a8500d;
   border-radius: 5px;
@@ -156,7 +183,8 @@ ul {
 }
 
 .category-list li {
-  margin: 10%;
+  display: flex;
+  justify-content: center;
 }
 
 .list-group h5 {
