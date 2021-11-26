@@ -1,10 +1,14 @@
 <!-- LOGIN FORM -->
-<div class="index">
+
+<div
+  class="index sticky-sm-top flex-sm-wrap-reverse row row-cols-1 row-cols-md-3 g-4 d-flex justify-content-evenly"
+>
+
   <div class="container-index flex-column">
 
     <form id="form" action="/" method="POST">
 
-      <div class="input-group mb-3">
+      <div class="input-home input-group mb-3">
         <label
           for="username"
           class="input-group-text"
@@ -18,7 +22,7 @@
           aria-describedby="inputGroup-sizing-default"
         />
       </div>
-      <div class="input-group mb-3">
+      <div class="input-home input-group mb-3">
         <label
           for="password"
           class="input-group-text"
@@ -32,19 +36,27 @@
           aria-describedby="inputGroup-sizing-default"
         />
       </div>
+
       {{#if errorMessage}}
         <div class="error-message">{{errorMessage}}</div>
+        <br />
       {{/if}}
-      <button class="btn btn-secondary" type="submit">Login</button>
 
+      <button class="btn btn-secondary" type="submit">Login</button>
     </form>
-    <!-- SIGN UP BUTTON -->
+
     <a href="/signup">
       <br />
       <button class="btn btn-secondary">Signup</button>
     </a>
   </div>
-
-  {{! error message display: }}
+  <div
+    class="why-us sticky-sm-top flex-sm-wrap-reverse container-index col d-flex justify-content-center align-items-center flex-column"
+  >
+    <h1>WHY SIGN US? </h1>
+    <hr class="opacity-100" />
+    <p>We are dedicated to help you, educating, and providing information about
+      the stock market to each and every user.</p>
+  </div>
 
 </div>

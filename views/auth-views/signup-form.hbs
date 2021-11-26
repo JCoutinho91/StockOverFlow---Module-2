@@ -1,42 +1,49 @@
 {{! SIGN UP FORM  }}
 
 <div class="signup-form">
+  <div>
+    <form id="form" action="/signup" method="POST">
+      <div class="input-home input-group mb-3">
+        <label
+          for="username"
+          class="input-group-text"
+          id="inputGroup-sizing-default"
+        >Choose a username</label>
+        <br />
+        <input
+          type="text"
+          name="username"
+          class="form-control"
+          aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-default"
+        />
+      </div>
+      <div class="input-home input-group mb-3">
+        <label
+          for="password"
+          class="input-group-text"
+          id="inputGroup-sizing-default"
+        >Choose a password</label>
+        <br />
+        <input
+          type="password"
+          name="password"
+          class="form-control"
+          aria-label="Sizing example input"
+          aria-describedby="inputGroup-sizing-default"
+        />
+      </div>
+      {{#if errorMessage}}
+        <div class="error-message">{{errorMessage}}</div>
+      {{/if}}
+      <button class="btn btn-secondary" type="submit">Create your account</button>
+    </form>
 
-  <form id="form" action="/signup" method="POST">
-    <div class="input-group mb-3">
-      <label
-        for="username"
-        class="input-group-text"
-        id="inputGroup-sizing-default"
-      >Choose a username</label>
-      <br />
-      <input
-        type="text"
-        name="username"
-        class="form-control"
-        aria-label="Sizing example input"
-        aria-describedby="inputGroup-sizing-default"
-      />
-    </div>
-    <div class="input-group mb-3">
-      <label
-        for="password"
-        class="input-group-text"
-        id="inputGroup-sizing-default"
-      >Choose a password</label>
-      <br />
-      <input
-        type="password"
-        name="password"
-        class="form-control"
-        aria-label="Sizing example input"
-        aria-describedby="inputGroup-sizing-default"
-      />
-    </div>
-    {{#if errorMessage}}
-      <div class="error-message">{{errorMessage}}</div>
-    {{/if}}
-    <button class="btn btn-secondary" type="submit">Create your account</button>
-  </form>
+    <br />
 
+    <div class="back-signup">
+      <button class="btn btn-outline-secondary">
+        <a href="javascript:history.back()"> Back </a></button>
+    </div>
+  </div>
 </div>
