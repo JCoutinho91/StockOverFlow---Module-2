@@ -127,6 +127,13 @@ ul {
   width: 100%;
 }
 /** home-view  */
+.home-view {
+  max-width: 100%;
+}
+.home-view h4 {
+  margin-top: 15% 0;
+  max-width: 220px;
+}
 
 .home-img img {
   border: 5px solid #a8500d;
@@ -273,7 +280,17 @@ ul {
   padding: 10%;
 }
 
-/** news */
+/** news-feeds */
 .back-btn {
   margin-left: 5%;
+}
+
+.new-view {
+  background-color: #ff9340;
+}
+
+.latest-news {
+  background-color: #fff;
+  border: 5px solid #a8500d;
+  border-radius: 10px;
 }

@@ -1,21 +1,23 @@
-<button class="back-btn btn btn-outline-secondary">
-  <a href="javascript:history.back()"> Back </a></button>
+<div class="new-view">
+  <button class="back-btn btn btn-outline-secondary">
+    <a href="javascript:history.back()"> Back </a></button>
 
-<h2>Latest News</h2>
-<div class="row row-cols-1 row-cols-md-3 g-4">
-  {{#each newsData}}
-    <div class="col d-flex justify-content-center">
-      <div class="card" style="width: 30rem;">
-        <img src="{{this.urlToImage}}" class="card-img-top" alt="newsimg" />
-        <div class="d-flex flex-column align-items-stretch card-body">
-          <h5 class="card-title">{{this.description}}</h5>
-          <p class="text-news card-text">{{this.description}}</p>
-          <a
-            href="{{this.url}}"
-            class="mt-auto p-2 bd-highlight news-feed-href btn btn-primary"
-          >Check More Here</a>
+  <h2>Latest News</h2>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    {{#each newsData}}
+      <div class="col d-flex justify-content-center">
+        <div class="card" style="width: 30rem;">
+          <img src="{{this.urlToImage}}" class="card-img-top" alt="newsimg" />
+          <div class="d-flex flex-column align-items-stretch card-body">
+            <h5 class="card-title">{{this.description}}</h5>
+            <p class="text-news card-text">{{this.description}}</p>
+            <a
+              href="{{this.url}}"
+              class="mt-auto p-2 bd-highlight news-feed-href btn btn-primary"
+            >Check More Here</a>
+          </div>
         </div>
       </div>
-    </div>
-  {{/each}}
+    {{/each}}
+  </div>
 </div>
