@@ -31,6 +31,43 @@ footer {
 .input-group-text {
   min-width: 25%;
 }
+
+.class-back {
+  background-color: #ff9340;
+  padding-bottom: 10px;
+}
+.class-back button {
+  color: #fff;
+  font-weight: bold;
+  max-height: 50px;
+  border: 2px solid #a8500d;
+  border-radius: 5px;
+}
+.class-back a {
+  color: #fff;
+}
+
+.class-back-edit-profile {
+  padding-bottom: 10px;
+}
+
+.class-back-edit-profile button {
+  color: #fff;
+  font-weight: bold;
+  max-height: 50px;
+  background-color: #a8500d;
+  border-radius: 5px;
+}
+.class-back-edit-profile a:hover {
+  background-color: #f47f24;
+}
+
+.class-back-edit-profile a {
+  background-color: #f47f24;
+  border: 2px solid #a8500d;
+  color: #fff;
+}
+
 /*  STYLE CSS */
 * {
   margin: 0;
@@ -84,6 +121,10 @@ ul {
 .why-us {
   color: #f47f24;
 }
+.why-us h1 {
+  font-weight: 800;
+}
+
 .why-us hr {
   color: #f47f24;
   height: 5px;
@@ -91,8 +132,8 @@ ul {
 }
 
 .why-us p {
-  text-align: justify;
-  line-height: 1.5rem;
+  text-align: center;
+  line-height: 3rem;
   font-size: 1.3rem;
 }
 
@@ -169,15 +210,16 @@ ul {
 }
 
 .home-img {
+  display: flex;
   width: 100%;
-  max-width: 230px;
   padding: 3px;
+  justify-content: center;
 }
 .home-img img {
   border: 5px solid #a8500d;
   border-radius: 5px;
-  max-width: 230px;
-  max-height: 150px;
+  max-width: 300px;
+  max-height: 250px;
   width: 100%;
   height: 100%;
 }
@@ -188,9 +230,9 @@ ul {
 }
 
 .list-group h5 {
-  font-weight: 400;
+  font-weight: 600;
   font-size: 2rem;
-  color: black;
+  color: #fff;
 }
 .home-category-list {
   background-color: #f47f24;
@@ -216,7 +258,7 @@ ul {
 }
 
 .general-information {
-  margin: 5% 0;
+  margin-top: 5%;
   padding: 5%;
   background-color: #ff9340;
   color: white;
@@ -240,8 +282,8 @@ ul {
 .general-information img {
   margin: auto;
   border: 5px solid #a8500d;
-  height: 120px;
-  width: 120px;
+  height: 200px;
+  width: 200px;
   background-color: #fff;
   border-radius: 100%;
 }
@@ -338,6 +380,7 @@ ul {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100%;
 }
 
 .comment-edit-view {
@@ -359,6 +402,9 @@ ul {
 }
 
 .edit-delete-btn button {
+  background-color: #f47f24;
+  border: 2px solid #a8500d;
+  color: #fff;
   width: 25%;
 }
 .edit-delete-btn form {
@@ -406,7 +452,6 @@ ul {
   border-radius: 10px;
 }
 
-
-.GitHub{
+.GitHub {
   color: black;
 }
