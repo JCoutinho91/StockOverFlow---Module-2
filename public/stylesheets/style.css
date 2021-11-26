@@ -197,6 +197,7 @@ ul {
 }
 
 .profile-home button {
+  margin-right: 20px;
   padding: 0;
   max-height: 50px;
   border: 2px solid #a8500d;
@@ -204,9 +205,20 @@ ul {
   background-color: #a8500d;
 }
 
+.profile-home button:hover {
+  padding: 0;
+  max-height: 50px;
+  border: 2px solid #a8500d;
+  border-radius: 5px;
+  background-color: #f47f24;
+}
+
 .profile-home a {
   color: #fff;
-  font-weight: 400;
+}
+
+.profile-home a:hover {
+  color: #000;
 }
 
 .home-img {
@@ -444,12 +456,29 @@ ul {
 
 .new-view {
   background-color: #ff9340;
+  padding: 20px 0;
 }
 
+.new-view h2 {
+  color: #fff;
+}
 .latest-news {
   background-color: #fff;
   border: 5px solid #a8500d;
   border-radius: 10px;
+}
+
+.text-news-btn {
+  color: #fff;
+  font-weight: bold;
+  max-height: 50px;
+  border: 2px solid #ff9340;
+  border-radius: 5px;
+  background-color: #a8500d;
+}
+.text-news-btn:hover {
+  background-color: #ff9340;
+  border: 2px solid #a8500d;
 }
 
 .GitHub {

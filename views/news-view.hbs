@@ -1,7 +1,8 @@
 <div class="new-view">
-  <button class="back-btn btn btn-outline-secondary">
-    <a href="javascript:history.back()"> Back </a></button>
-
+  <div class="class-back">
+    <button class="back-btn btn btn-outline-secondary">
+      <a href="javascript:history.back()"> Back </a></button>
+  </div>
   <h2>Latest News</h2>
   <div class="row row-cols-1 row-cols-md-3 g-4">
     {{#each newsData}}
@@ -13,7 +14,7 @@
             <p class="text-news card-text">{{this.description}}</p>
             <a
               href="{{this.url}}"
-              class="mt-auto p-2 bd-highlight news-feed-href btn btn-primary"
+              class="text-news-btn mt-auto p-2 bd-highlight news-feed-href btn btn-primary"
             >Check More Here</a>
           </div>
         </div>
