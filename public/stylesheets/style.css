@@ -122,6 +122,13 @@ ul {
   align-items: center;
   flex-direction: column;
 }
+.perfil-photo {
+  min-height: 250px;
+}
+
+.about-profile {
+  min-height: 100px;
+}
 
 .signup-form button {
   width: 100%;
@@ -332,9 +339,28 @@ ul {
 
 /* * profile-view */
 
+.profile-view {
+  background-color: #ff9340;
+}
+
 .profile-view img {
   border-radius: 100%;
   padding: 10%;
+}
+
+.card-style {
+  margin-bottom: 20%;
+  border: 5px solid #a8500d;
+  background-color: lightgrey;
+  border-radius: 10px;
+}
+
+/** edit profile */
+.input-profile {
+  background-color: #a8500d;
+  color: white;
+  font-weight: 600;
+  border-style: none;
 }
 
 /** news-feeds */
