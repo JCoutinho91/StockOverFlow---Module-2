@@ -44,7 +44,11 @@ router.post("/signup", (req, res) => {
   const regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}/;
   if (!regex.test(password)) {
     res.status(400).render("auth-views/signup-form", {
+<<<<<<< HEAD
       errorMessage: "Weak Password...",
+=======
+      errorMessage: "Weak Password.",
+>>>>>>> 2932dfc09c727a7daf48892c7fc0c169491257cc
       userIsLoggedIn: userIsLoggedIn,
     });
 
