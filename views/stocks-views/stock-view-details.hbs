@@ -1,6 +1,6 @@
-<div class="stock-details-view">
-<div class="news-stock-detail d-flex justify-content-around  align-items-center">
-  <div class="stock-details stock-detail-info col-md-8">
+<div class="stock-details-view ">
+<div class="container news-stock-detail row row-cols-1 row-cols-sm-2 row-cols-md-4 d-flex justify-content-between  align-items-center">
+  <div class="stock-details stock-detail-info col-md-8 col">
           <h2> {{data.stockInfo.data.companyInformation.shortName}}</h2>
           <p><i> ({{data.stockInfo.data.ticker}})</i></p>
           <h5>Current Price:</h5>
@@ -24,11 +24,11 @@
          <p> {{data.stockInfo.data.fundamentals.totalInstitutionalOwners}}</p>
           <h5>Balance Sheet:</h5>
           
-          <div>
-          <ul class="order-balance-sheet d-flex flex-row-reverse justify-content-around">
+          <div class="container">
+          <ul class="order-balance-sheet d-flex flex-row-reverse justify-content-around row row-cols-1 row-cols-sm-2 row-cols-md-4">
           {{#each data.stockInfo.data.fundamentals.balanceSheet}}
           <div>
-          <li class="list-balance">
+          <li class="list-balance col">
           <p><b>Date: {{this.date}}</b></p>
           <p> Assets: ${{this.assets}}</p>
           <p>Liabilities: ${{this.liabilities}}</p>
@@ -39,7 +39,7 @@
           </div>
          
   </div>
-  <div class="last-news-detail stock-detail-news col-md-4 ms-auto">
+  <div class="last-news-detail stock-detail-news col-md-4 ms-auto col">
           <ul class="list-group">
             <li>
               <h3 class="news-list-title">

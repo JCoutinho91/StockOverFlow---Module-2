@@ -271,7 +271,7 @@ ul {
 
 .general-information {
   margin-top: 5%;
-  padding: 5%;
+  padding: 5% 0;
   background-color: #ff9340;
   color: white;
   text-align: justify;
@@ -303,6 +303,7 @@ ul {
 /* * stock-view */
 .stock-genereal-view {
   background-color: #ff9340;
+  margin: 0;
 }
 
 .stock-label {
@@ -314,6 +315,8 @@ ul {
 /* * stock-detail-view */
 .stock-details-view {
   background-color: #ff9340;
+  margin: 0;
+  width: 100%;
 }
 
 .stock-details {
@@ -321,11 +324,12 @@ ul {
   border: 5px solid #a8500d;
   border-radius: 10px;
   padding: 3%;
-  margin: 20px;
+  margin: 20px 0;
 }
 
 .news-stock-detail {
   padding: 0 10px;
+  width: 100%;
 }
 
 .news-stock-detail h2 {
@@ -336,10 +340,6 @@ ul {
   line-height: 1.5em;
   text-align: justify;
   margin: 1rem auto;
-}
-
-.stock-details {
-  margin-right: 5%;
 }
 
 .comment-stock-detail {
@@ -370,6 +370,9 @@ ul {
 }
 .news-list a {
   color: #ff9340;
+}
+.last-news-detail {
+  margin: 0;
 }
 
 .news-list a:hover {
@@ -483,4 +486,8 @@ ul {
 
 .GitHub {
   color: black;
+}
+
+.research-img {
+  text-align: center;
 }
